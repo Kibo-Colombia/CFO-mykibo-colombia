@@ -1,0 +1,295 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+/* === KIBO MINIMALIST THEME === */
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-outfit);
+  --font-mono: var(--font-geist-mono);
+
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+
+  /* Budget Category Colors - Strict Kibo Palette - Source of Truth */
+  --color-total: #A9D9C7;
+  /* Total/Income (Teal) */
+  --color-future: #614FBB;
+  /* Future (Purple) */
+  --color-living: #65A1C9;
+  /* Living (Blue) - Updated from Purple */
+  --color-present: #C24656;
+  /* Present (Red) */
+
+  /* Mappings for legacy or specific use */
+  --color-category-income: var(--color-total);
+  --color-category-future: var(--color-future);
+  --color-category-living: var(--color-living);
+  --color-category-present: var(--color-present);
+
+  /* Global Colors Map - Extras */
+  --color-kibo-bg: #1B4034;
+}
+
+:root {
+  --radius: 0.5rem;
+
+  /* Kibo Main Strict Palette */
+  /* Background: User confirmed "looks great" - kept existing */
+  --background: #1B4034;
+  --foreground: #F2F2F2;
+
+  /* Components */
+  --card: #1B4034;
+  --card-foreground: #F2F2F2;
+
+  --popover: #1B4034;
+  --popover-foreground: #F2F2F2;
+
+  /* Primary Action -> Future/Living Purple */
+  --primary: #614FBB;
+  --primary-foreground: #F2F2F2;
+
+  /* Secondary/Info -> Income Teal */
+  --secondary: #A9D9C7;
+  --secondary-foreground: #1B4034;
+  /* Dark text on light teal */
+
+  /* Muted/Subtle -> Darker shade or mixed opacity */
+  --muted: #1B4032;
+  /* Slightly darker green for variety */
+  --muted-foreground: #A9D9C7;
+  /* Teal for muted text per user ref */
+
+  /* Accent -> Purple */
+  --accent: #614FBB;
+  --accent-foreground: #F2F2F2;
+
+  /* Destructive -> Present Red/Pink */
+  --destructive: #C24656;
+  --destructive-foreground: #F2F2F2;
+
+  /* Borders -> Teal for visibility or Purple? 
+     User said "totals/income: #A9D9C7". 
+     Let's use Teal for Borders/Lines */
+  --border: #A9D9C7;
+  --input: #1B4032;
+  --ring: #614FBB;
+
+  /* Charts */
+  /* Charts - Mapped to Categories */
+  --chart-1: var(--color-total);
+  /* Income/Total */
+  --chart-2: var(--color-future);
+  /* Future */
+  --chart-3: var(--color-present);
+  /* Present */
+  --chart-4: var(--color-living);
+  /* Living */
+  --chart-5: #F2F2F2;
+  /* White generic */
+
+  --sidebar: #1B4034;
+  --sidebar-foreground: #F2F2F2;
+  --sidebar-primary: #614FBB;
+  --sidebar-primary-foreground: #F2F2F2;
+  --sidebar-accent: #614FBB;
+  --sidebar-accent-foreground: #F2F2F2;
+  --sidebar-border: #A9D9C7;
+  --sidebar-ring: #614FBB;
+}
+
+.dark {
+  /* Enforce Critical Palette in Dark Mode too (Solid Theme) */
+  --background: #1B4034;
+  --foreground: #F2F2F2;
+  --card: #1B4034;
+  --card-foreground: #F2F2F2;
+  --popover: #1B4034;
+  --popover-foreground: #F2F2F2;
+  --primary: #614FBB;
+  --primary-foreground: #F2F2F2;
+  --secondary: #A9D9C7;
+  --secondary-foreground: #1B4034;
+  --muted: #1B4032;
+  --muted-foreground: #A9D9C7;
+  --accent: #614FBB;
+  --accent-foreground: #F2F2F2;
+  --destructive: #C24656;
+  --destructive-foreground: #F2F2F2;
+  --border: #A9D9C7;
+  --input: #1B4032;
+  --ring: #614FBB;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  html, body {
+    @apply bg-background text-foreground;
+    overscroll-behavior: none;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* === MINIMALIST COMPONENTS (No Liquids/Glows) === */
+
+/* Replaces .liquid-card */
+.liquid-card {
+  @apply bg-card border border-border rounded-xl;
+  /* Removed backdrop-filter and transparency for "solid" look */
+}
+
+.liquid-card-premium {
+  @apply bg-card border border-border rounded-xl;
+}
+
+/* Replaces .liquid-button */
+.liquid-button {
+  @apply rounded-full font-bold transition-transform active:scale-95 shadow-sm;
+  /* Removed extensive shadowing/glows */
+}
+
+.text-label {
+  @apply text-xs font-semibold uppercase tracking-wider text-muted-foreground;
+}
+
+.text-value {
+  @apply text-4xl font-bold tracking-tight text-foreground font-sans;
+  /* Switched to sans for cleaner look */
+}
+
+/* Utilities */
+.safe-area-pb {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+.page-with-nav {
+  padding-bottom: 5rem;
+}
+
+/* Legacy Support / Solid Overrides */
+.glass-surface,
+.glass-premium,
+.glass-dark,
+.glass-frosted {
+  @apply bg-card border border-border;
+  background: var(--card);
+  /* Enforce solid */
+  backdrop-filter: none;
+}
+
+.ambient-glow-cyan::before,
+.ambient-glow-violet::after,
+.ambient-glow-green::before,
+.page-ambient::before,
+.page-ambient::after,
+.mirror-shine::after,
+.highlight-shine::before,
+.scanline-effect::before {
+  display: none !important;
+  /* Remove ambient effects */
+}
+
+/* Solid Text Gradients (Actually just solid colors now for minimalism) */
+.text-gradient-cyan-green {
+  @apply text-[var(--color-total)];
+  background: none;
+  -webkit-text-fill-color: initial;
+}
+
+.text-gradient-violet-cyan {
+  @apply text-[var(--color-total)];
+  background: none;
+  -webkit-text-fill-color: initial;
+}
+
+.text-gradient-amber-green {
+  @apply text-[var(--color-future)];
+  background: none;
+  -webkit-text-fill-color: initial;
+}
+
+/* Floating Action Button - Solid */
+.floating-action-container {
+  @apply fixed bottom-[120px] right-[24px] z-[9998] flex gap-3;
+}
+
+.floating-action-btn {
+  @apply flex items-center h-14 px-6 rounded-2xl border-2 border-primary bg-background text-primary font-bold shadow-lg transition-transform active:scale-95 cursor-pointer uppercase tracking-wider text-xs;
+}
+
+.floating-action-btn:hover {
+  @apply -translate-y-0.5 shadow-xl bg-primary text-primary-foreground;
+}
+
+.floating-action-btn--save {
+  @apply border-primary text-primary;
+}
+
+.floating-action-btn--reset {
+  @apply border-destructive text-destructive;
+}
+
+.floating-action-btn--reset:hover {
+  @apply bg-destructive text-destructive-foreground;
+}
+
+/* Navigation */
+.bottom-nav-fixed {
+  @apply fixed bottom-0 left-0 right-0 z-[100] bg-background border-t border-border;
+}
+
+/* Loading */
+.loading-spinner {
+  @apply animate-spin rounded-full border-b-2 border-primary;
+}
+
+/* Remove Shimmer */
+.shimmer-effect,
+.shimmer-hover:hover {
+  background: none;
+  animation: none;
+}
+
+/* Hide scrollbar */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
