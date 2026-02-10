@@ -10,39 +10,39 @@ const config: Config = {
     extend: {
       colors: {
         // Kibo Main Palette (Updated to match new scheme)
-        'kibo-bg': '#1B4034',    // Main Background
+        'kibo-bg': 'var(--color-kibo-bg)',    // Main Background
         'kibo-red': 'var(--color-present)',   // Kibo Red (Present)
         'kibo-purple': 'var(--color-future)', // Kibo Purple (Future)
-        'kibo-blue': 'var(--color-total)',    // Kibo Blue (Total/Income) - UPDATED
-        'kibo-teal': 'var(--color-living)',   // Kibo Teal/Green (Living) - UPDATED
+        'kibo-blue': 'var(--color-total)',    // Kibo Blue (Total/Income)
+        'kibo-teal': 'var(--color-living)',   // Kibo Teal/Green (Living)
 
         // Categories Palette (Correctly mapped)
-        'cat-dark': '#1B4032',
+        'cat-dark': 'var(--color-kibo-bg)',
         'cat-mint': 'var(--color-living)',    // Living (Green)
         'cat-sage': 'var(--color-total)',     // Total (Blue)
         'cat-pale': 'var(--color-present)',   // Present (Red)
         'cat-white': '#F2F2F2',   // Text
 
         // Semantic Mapping (Updated)
-        'trust-navy': '#1B4034',
-        'growth-green': 'var(--color-living)', // Living (Green) - UPDATED
+        'trust-navy': 'var(--color-kibo-bg)',
+        'growth-green': 'var(--color-living)', // Living (Green)
         'alert-amber': 'var(--color-present)', // Present (Red)
-        'cyber-cyan': 'var(--color-living)',   // Living Green - UPDATED
-        'laser-magenta': 'var(--color-total)', // Total Blue - UPDATED
+        'cyber-cyan': 'var(--color-living)',   // Living Green
+        'laser-magenta': 'var(--color-total)', // Total Blue
         'flux-violet': 'var(--color-future)',  // Future Purple
 
         // Legacy/Compatibility Layer (Mapped to New Palette to Remove Old Colors)
-        'glass-surface': '#1B4034',
-        'secondary-text': '#A9D9C7',
-        'cobalt-blue': '#A9D9C7',
-        'electric-orange': '#614FBB',
-        'acid-green': '#614FBB',
-        'void-black': '#1B4034',
-        'card-surface': '#1B4034',
+        'glass-surface': 'var(--color-kibo-bg)',
+        'secondary-text': 'var(--color-living)',
+        'cobalt-blue': 'var(--color-living)',
+        'electric-orange': 'var(--color-future)',
+        'acid-green': 'var(--color-future)',
+        'void-black': 'var(--color-kibo-bg)',
+        'card-surface': 'var(--color-kibo-bg)',
 
         // Standard
-        background: '#1B4034',
-        foreground: '#F2F2F2',
+        background: 'var(--color-background)',
+        foreground: 'var(--color-foreground)',
       },
       fontFamily: {
         sans: ['var(--font-outfit)', 'sans-serif'],

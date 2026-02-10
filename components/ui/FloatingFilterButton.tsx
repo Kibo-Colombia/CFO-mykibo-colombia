@@ -17,9 +17,8 @@ export default function FloatingFilterButton({ onClick, count, isOpen = false }:
   }, []);
 
   // Colors: When closed - dark bg with Blue icon. When open - Blue bg with dark icon
-  const DARK_BLUE = '#1A3040';
-  const bgColor = isOpen ? 'var(--color-total)' : DARK_BLUE;
-  const iconColor = isOpen ? DARK_BLUE : 'var(--color-total)';
+  const bgColor = isOpen ? 'var(--color-total)' : 'var(--color-kibo-bg)';
+  const iconColor = isOpen ? 'var(--color-kibo-bg)' : 'var(--color-total)';
   const borderColor = isOpen ? 'rgba(255,255,255,0.3)' : 'var(--color-total)';
   const shadowColor = isOpen ? 'var(--color-total)' : 'rgba(101, 161, 201, 0.3)'; // Blue-ish shadow
 
@@ -72,7 +71,7 @@ export default function FloatingFilterButton({ onClick, count, isOpen = false }:
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          border: `2px solid ${DARK_BLUE}`,
+          border: '2px solid var(--color-kibo-bg)',
         }}>
           {count}
         </span>

@@ -205,7 +205,7 @@ export default function SpendingHeatmapD3({ expenses, onExpand, onInfo, isExpand
             {onInfo && (
               <button
                 onClick={onInfo}
-                className="p-1.5 rounded-lg text-[#65A1C9]/70 hover:text-[#65A1C9] hover:bg-[#65A1C9]/10 transition-all border border-transparent hover:border-[#65A1C9]/20"
+                className="p-1.5 rounded-lg text-kibo-blue opacity-70 hover:text-kibo-blue hover:opacity-100 hover:bg-white/10 transition-all border border-transparent hover:border-white/20"
                 aria-label="Chart Info"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -219,7 +219,7 @@ export default function SpendingHeatmapD3({ expenses, onExpand, onInfo, isExpand
             {onExpand && !tooMuchData && (
               <button
                 onClick={onExpand}
-                className="p-1.5 rounded-lg text-[#65A1C9]/70 hover:text-[#65A1C9] hover:bg-[#65A1C9]/10 transition-all border border-transparent hover:border-[#65A1C9]/20"
+                className="p-1.5 rounded-lg text-kibo-blue opacity-70 hover:text-kibo-blue hover:opacity-100 hover:bg-white/10 transition-all border border-transparent hover:border-white/20"
                 aria-label="Expand Chart"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
