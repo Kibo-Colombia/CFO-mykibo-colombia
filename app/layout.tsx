@@ -13,7 +13,7 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: "Kibo",
+  title: "CFO Kibo",
   description: "Track expenses, manage budgets, and gain financial insights - works offline too!",
   manifest: "/manifest.json",
   appleWebApp: {

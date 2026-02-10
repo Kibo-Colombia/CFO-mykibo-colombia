@@ -15,14 +15,19 @@ export default function MyPage() {
     const router = useRouter();
     const supabase = createClient();
 
-    // Unified Profile Data State (Matches DB Columns)
+    // Unified Profile Data State
     const [profileData, setProfileData] = useState({
+        // Design Your Life fields
         identity_goal: '',
         identity_details: '',
         fuel_category: '',
         fuel_details: '',
         leak_category: '',
-        leak_details: ''
+        leak_details: '',
+        // User Info
+        full_name: '',
+        avatar_url: '',
+        email: ''
     });
 
     // Fetch Profile Data
@@ -48,11 +53,21 @@ export default function MyPage() {
                         fuel_category: data.fuel_category || '',
                         fuel_details: data.fuel_details || '',
                         leak_category: data.leak_category || '',
-                        leak_details: data.leak_details || ''
+                        leak_details: data.leak_details || '',
+                        full_name: data.full_name || user.user_metadata?.full_name || '',
+                        avatar_url: data.avatar_url || user.user_metadata?.avatar_url || '',
+                        email: user.email || ''
                     });
                 } else if (error && error.code !== 'PGRST116') {
-                    // PGRST116 is "Row not found" which is fine for new users
                     console.error('Error fetching profile:', error);
+                } else {
+                    // If no profile row, still set basic user info from auth
+                    setProfileData(prev => ({
+                        ...prev,
+                        email: user.email || '',
+                        full_name: user.user_metadata?.full_name || '',
+                        avatar_url: user.user_metadata?.avatar_url || ''
+                    }));
                 }
             } catch (error) {
                 console.error('Error:', error);
@@ -68,9 +83,13 @@ export default function MyPage() {
     // Save to Supabase (Debounced)
     // eslint-disable-next-line react-hooks/exhaustive-deps
     const debouncedSave = useCallback(
-        debounce(async (updates: any) => {
+        debounce(async (updates: Record<string, string>) => {
             const { data: { user } } = await supabase.auth.getUser();
             if (!user) return;
+
+            // Filter out non-DB columns if necessary, but 'profiles' usually accepts what's defined.
+            // We only want to save the "Design Your Life" fields here usually, unless we add profile editing.
+            // For now, we'll strip email/avatar if they aren't in the update.
 
             const { error } = await supabase
                 .from('profiles')
@@ -88,8 +107,6 @@ export default function MyPage() {
 
     const handleSave = () => {
         setIsEditing(false);
-        // Data is already auto-saving, but logic to force save could go here if needed.
-        // For now, the debouncer handles it reliably as user types.
     };
 
     if (!mounted || loading) {
@@ -115,26 +132,21 @@ export default function MyPage() {
 
             <main className="max-w-lg mx-auto px-4 space-y-8">
 
-                {/* Progress Overview (Solid Card) */}
-                <section className="relative overflow-hidden rounded-3xl bg-[#1B4032] border border-[#A9D9C7] p-6">
-                    <div className="flex items-center gap-4 mb-4">
-                        <div className="w-12 h-12 rounded-full bg-[#A9D9C7] flex items-center justify-center text-white font-bold text-xl">
-                            <User className="w-6 h-6 text-white" />
+                {/* Profile Card & Connected Apps */}
+                <section className="space-y-6">
+                    {/* User Profile Info */}
+                    <div className="flex flex-col items-center p-6 rounded-3xl bg-[#1B4032] border border-[#A9D9C7]">
+                        <div className="w-20 h-20 rounded-full bg-[#A9D9C7] flex items-center justify-center text-white font-bold text-xl mb-4 overflow-hidden border-2 border-[#1B4034]">
+                            {profileData.avatar_url ? (
+                                <img src={profileData.avatar_url} alt="Profile" className="w-full h-full object-cover" />
+                            ) : (
+                                <User className="w-10 h-10 text-[#1B4034]" />
+                            )}
                         </div>
-                        <div>
-                            <h2 className="text-lg font-semibold text-white">Your Progress</h2>
-                            <p className="text-sm text-[#A9D9C7]">Level 1 • Novice Saver</p>
-                        </div>
-                    </div>
-
-                    <div className="space-y-3">
-                        <div className="flex justify-between text-sm">
-                            <span className="text-[#A9D9C7]">Next Milestone</span>
-                            <span className="text-white font-medium">Create Budget</span>
-                        </div>
-                        <div className="h-2 w-full bg-[#1B4034] rounded-full overflow-hidden">
-                            <div className="h-full bg-[#A9D9C7] w-[35%] rounded-full" />
-                        </div>
+                        <h2 className="text-xl font-bold text-white text-center">
+                            {profileData.full_name || 'Kibo User'}
+                        </h2>
+                        <p className="text-sm text-[#A9D9C7] text-center opacity-80">{profileData.email}</p>
                     </div>
                 </section>
 
@@ -144,7 +156,7 @@ export default function MyPage() {
                         <div>
                             <h2 className="text-xl font-bold text-white mb-2">Design Your Life</h2>
                             <p className="text-[#A9D9C7] text-sm leading-relaxed">
-                                I’m here to help you afford the life you actually want. Let's figure out what matters to you (and what doesn't) so you can do more of the fun stuff.
+                                I&apos;m here to help you afford the life you actually want. Let&apos;s figure out what matters to you (and what doesn&apos;t) so you can do more of the fun stuff.
                             </p>
                         </div>
                         <button
@@ -204,6 +216,42 @@ export default function MyPage() {
                         />
                     </div>
                 </section>
+
+                {/* Connected Apps */}
+                <div className="p-6 rounded-3xl bg-[#1B4032] border border-[#A9D9C7]">
+                    <h3 className="text-lg font-bold mb-4 flex items-center gap-2 text-white">
+                        <span className="text-xl text-[#A9D9C7]">❖</span>
+                        Connected Apps
+                    </h3>
+                    <div className="grid grid-cols-1 gap-4">
+                        {/* Kibo CFO - Current App */}
+                        <div className="p-4 rounded-2xl bg-[#1B4034] border border-[#65A1C9] relative overflow-hidden group">
+                            <div className="flex justify-between items-start mb-2">
+                                <div className="font-bold text-lg text-[#65A1C9]">Mykibo CFO</div>
+                                <span className="text-[10px] bg-[#65A1C9] text-white font-bold px-2 py-1 rounded-full">
+                                    You are here
+                                </span>
+                            </div>
+                            <p className="text-sm text-[#A9D9C7] opacity-80">Finance & Budgeting</p>
+                        </div>
+
+                        {/* Kibo Nexus - Link to External */}
+                        <a
+                            href="https://nexus.mykibo.site"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="block p-4 rounded-2xl bg-[#1B4034] border border-[#A9D9C7] relative overflow-hidden group hover:bg-[#1E4332] transition-colors"
+                        >
+                            <div className="flex justify-between items-start mb-2">
+                                <div className="font-bold text-lg text-[#A9D9C7]">Mykibo Nexus</div>
+                                <div className="text-[10px] bg-[#A9D9C7] text-[#1B4034] font-bold px-2 py-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity">
+                                    Launch
+                                </div>
+                            </div>
+                            <p className="text-sm text-[#A9D9C7] opacity-80">Digital Campus</p>
+                        </a>
+                    </div>
+                </div>
 
             </main>
         </div>

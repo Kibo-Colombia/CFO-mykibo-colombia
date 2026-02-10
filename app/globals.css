@@ -41,115 +41,122 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
 
-  /* Budget Category Colors - Strict Kibo Palette - Source of Truth */
-  --color-total: #A9D9C7;
-  /* Total/Income (Teal) */
-  --color-future: #614FBB;
-  /* Future (Purple) */
+  /* Kibo Palette Definitions (Source of Truth) */
+  --color-kibo-mint: #A9D9C7;
+  --color-kibo-dark: #1E4332;
+  --color-forest: #477365;
+  --color-white: #F2F2F2;
+
   --color-living: #65A1C9;
-  /* Living (Blue) - Updated from Purple */
+  --color-living-dark: #1A3040;
+  --color-living-mid: #3E6D8D;
+
   --color-present: #C24656;
-  /* Present (Red) */
+  --color-present-dark: #421C22;
+  --color-present-mid: #8C333F;
 
-  /* Mappings for legacy or specific use */
-  --color-category-income: var(--color-total);
-  --color-category-future: var(--color-future);
-  --color-category-living: var(--color-living);
-  --color-category-present: var(--color-present);
+  --color-future: #614FBB;
+  --color-future-dark: #231B45;
+  --color-future-mid: #463988;
 
-  /* Global Colors Map - Extras */
   --color-kibo-bg: #1B4034;
 }
 
 :root {
   --radius: 0.5rem;
 
-  /* Kibo Main Strict Palette */
-  /* Background: User confirmed "looks great" - kept existing */
+  /* === COLOR HIERARCHY (STRICT) === */
+
+  /* 1. Green Palette (Primary/Default) */
+  /* Background: Using #1B4034 as per existing/user preference, or #1E4332 per docs? 
+     Docs say kibo-dark is #1E4332. But current bg is #1B4034. 
+     Keeping #1B4034 as 'background' to minimize disruption unless user asked to switch. 
+     Actually, docs say "Backgrounds" use Green Palette. 
+     Let's map correctly: */
   --background: #1B4034;
   --foreground: #F2F2F2;
 
-  /* Components */
-  --card: #1B4034;
+  /* Components using Link/Mint */
+  --card: #1E4332;
+  /* Docs: .kibo-card: Dark Green background (#1E4332) */
   --card-foreground: #F2F2F2;
 
-  --popover: #1B4034;
+  --popover: #1E4332;
   --popover-foreground: #F2F2F2;
 
-  /* Primary Action -> Future/Living Purple */
-  --primary: #614FBB;
-  --primary-foreground: #F2F2F2;
+  /* Primary Action -> Mint Green */
+  --primary: #A9D9C7;
+  --primary-foreground: #1B4034;
 
-  /* Secondary/Info -> Income Teal */
-  --secondary: #A9D9C7;
-  --secondary-foreground: #1B4034;
-  /* Dark text on light teal */
+  /* Secondary -> Mapped to Blue/Living for CFO context or fallback? 
+     Docs say Blue is "MANUAL SELECTION ONLY" for CFO branding. 
+     But we need a secondary. Let's use Forest Green or Mint dim? 
+     Let's stick to Mint for consistency or define a secondary. 
+     Docs didn't explicitly define 'secondary' semantic token, only palettes.
+     We will use Forest Green for muted/secondary elements. */
+  --secondary: #477365;
+  --secondary-foreground: #F2F2F2;
 
-  /* Muted/Subtle -> Darker shade or mixed opacity */
-  --muted: #1B4032;
-  /* Slightly darker green for variety */
+  /* Muted */
+  --muted: #1B4034;
+  /* Slightly different from card */
   --muted-foreground: #A9D9C7;
-  /* Teal for muted text per user ref */
 
-  /* Accent -> Purple */
+  /* Accent -> Purple (Future) */
   --accent: #614FBB;
   --accent-foreground: #F2F2F2;
 
-  /* Destructive -> Present Red/Pink */
+  /* Destructive -> Red (Present) */
   --destructive: #C24656;
   --destructive-foreground: #F2F2F2;
 
-  /* Borders -> Teal for visibility or Purple? 
-     User said "totals/income: #A9D9C7". 
-     Let's use Teal for Borders/Lines */
+  /* Borders -> Green (#A9D9C7) */
   --border: #A9D9C7;
-  --input: #1B4032;
-  --ring: #614FBB;
+  --input: #1B4034;
+  --ring: #A9D9C7;
 
-  /* Charts */
-  /* Charts - Mapped to Categories */
-  --chart-1: var(--color-total);
-  /* Income/Total */
-  --chart-2: var(--color-future);
-  /* Future */
-  --chart-3: var(--color-present);
-  /* Present */
-  --chart-4: var(--color-living);
+  /* Chart Mappings */
+  --chart-1: #A9D9C7;
+  /* Total/Primary */
+  --chart-2: #65A1C9;
   /* Living */
+  --chart-3: #C24656;
+  /* Present */
+  --chart-4: #614FBB;
+  /* Future */
   --chart-5: #F2F2F2;
-  /* White generic */
 
   --sidebar: #1B4034;
   --sidebar-foreground: #F2F2F2;
-  --sidebar-primary: #614FBB;
-  --sidebar-primary-foreground: #F2F2F2;
-  --sidebar-accent: #614FBB;
+  --sidebar-primary: #A9D9C7;
+  --sidebar-primary-foreground: #1B4034;
+  --sidebar-accent: #1E4332;
   --sidebar-accent-foreground: #F2F2F2;
   --sidebar-border: #A9D9C7;
-  --sidebar-ring: #614FBB;
+  --sidebar-ring: #A9D9C7;
 }
 
 .dark {
   /* Enforce Critical Palette in Dark Mode too (Solid Theme) */
   --background: #1B4034;
   --foreground: #F2F2F2;
-  --card: #1B4034;
+  --card: #1E4332;
   --card-foreground: #F2F2F2;
-  --popover: #1B4034;
+  --popover: #1E4332;
   --popover-foreground: #F2F2F2;
-  --primary: #614FBB;
-  --primary-foreground: #F2F2F2;
-  --secondary: #A9D9C7;
-  --secondary-foreground: #1B4034;
-  --muted: #1B4032;
+  --primary: #A9D9C7;
+  --primary-foreground: #1B4034;
+  --secondary: #477365;
+  --secondary-foreground: #F2F2F2;
+  --muted: #1B4034;
   --muted-foreground: #A9D9C7;
   --accent: #614FBB;
   --accent-foreground: #F2F2F2;
   --destructive: #C24656;
   --destructive-foreground: #F2F2F2;
   --border: #A9D9C7;
-  --input: #1B4032;
-  --ring: #614FBB;
+  --input: #1B4034;
+  --ring: #A9D9C7;
 }
 
 @layer base {
@@ -157,7 +164,8 @@
     @apply border-border outline-ring/50;
   }
 
-  html, body {
+  html,
+  body {
     @apply bg-background text-foreground;
     overscroll-behavior: none;
     -webkit-overflow-scrolling: touch;
