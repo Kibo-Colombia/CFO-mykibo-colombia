@@ -42,8 +42,8 @@ export function DatePicker({ value, onChange }: DatePickerProps) {
           className={`
             px-6 py-3 rounded-2xl font-semibold transition-all duration-200 border
             ${isToday
-              ? 'bg-[#A9D9C7] border-[#A9D9C7] text-[#1B4034]'
-              : 'bg-white/5 border-white/10 text-secondary-text hover:bg-white/10 hover:border-white/20'}
+              ? 'bg-primary border-primary text-primary-foreground'
+              : 'bg-foreground/5 border-foreground/10 text-secondary-text hover:bg-foreground/10 hover:border-foreground/20'}
           `}
         >
           Today {isToday && '✓'}
@@ -53,8 +53,8 @@ export function DatePicker({ value, onChange }: DatePickerProps) {
           className={`
             px-6 py-3 rounded-2xl font-semibold transition-all duration-200 border
             ${isYesterday
-              ? 'bg-[#A9D9C7] border-[#A9D9C7] text-[#1B4034]'
-              : 'bg-white/5 border-white/10 text-secondary-text hover:bg-white/10 hover:border-white/20'}
+              ? 'bg-primary border-primary text-primary-foreground'
+              : 'bg-foreground/5 border-foreground/10 text-secondary-text hover:bg-foreground/10 hover:border-foreground/20'}
           `}
         >
           Yesterday {isYesterday && '✓'}
@@ -63,7 +63,7 @@ export function DatePicker({ value, onChange }: DatePickerProps) {
 
       {/* Selected date display */}
       <div className="text-center">
-        <span className="text-3xl font-bold text-white">
+        <span className="text-3xl font-bold text-foreground">
           {formatDate(value)}
         </span>
       </div>
@@ -71,8 +71,8 @@ export function DatePicker({ value, onChange }: DatePickerProps) {
       {/* Native date picker (styled) */}
       <div className="flex justify-center">
         <label className="relative cursor-pointer">
-          <span className="px-4 py-2 rounded-xl bg-white/5 border border-white/15
-                          text-secondary-text text-sm hover:bg-white/10 hover:border-white/25 
+          <span className="px-4 py-2 rounded-xl bg-foreground/5 border border-foreground/15
+                          text-secondary-text text-sm hover:bg-foreground/10 hover:border-foreground/25 
                           transition-colors flex items-center gap-2">
             Pick different date
           </span>

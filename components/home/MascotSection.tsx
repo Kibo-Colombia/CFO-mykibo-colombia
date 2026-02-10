@@ -121,28 +121,17 @@ export function MascotSection({ investmentPercentage, pendingPercentage, userNam
             {/* Speech Bubble */}
             <div
                 className={`
-          relative mb-4 p-4 rounded-2xl
-          bg-kibo-bg
-          border border-kibo-teal/30 backdrop-blur-sm
+          relative mb-1 p-4 rounded-2xl
+          bg-card
+          border backdrop-blur-sm
           w-full max-w-sm min-h-[80px]
           shadow-[0_4px_12px_rgba(0,0,0,0.2)]
           transition-all duration-300
           ${isAnimating ? 'opacity-0 translate-y-2' : 'opacity-100 translate-y-0'}
         `}
+                style={{ borderColor: '#65A1C9' }}
             >
-                {/* Bubble pointer */}
-                <div
-                    className="absolute -bottom-3 left-1/2 -translate-x-1/2 w-0 h-0
-                     border-l-[12px] border-l-transparent
-                     border-r-[12px] border-r-transparent
-                     border-t-[12px] border-t-kibo-bg"
-                    style={{ filter: 'drop-shadow(0 2px 2px rgba(0,0,0,0.1))' }}
-                />
 
-                {/* Add a border line for the pointer to match the bubble border if possible, 
-                    but CSS triangles are tricky with borders. 
-                    Simplified: just the shape color matches the bubble bg. 
-                */}
 
                 {/* Message content */}
                 <p className="text-white text-sm font-medium leading-relaxed text-center">
@@ -158,13 +147,27 @@ export function MascotSection({ investmentPercentage, pendingPercentage, userNam
                                 className={`
                   w-1.5 h-1.5 rounded-full transition-all duration-300
                   ${index === currentMessageIndex
-                                        ? 'bg-kibo-teal w-4'
-                                        : 'bg-kibo-teal/30'}
+                                        ? 'bg-kibo-blue w-4'
+                                        : 'bg-kibo-blue/30'}
                 `}
                             />
                         ))}
                     </div>
                 )}
+            </div>
+
+            {/* Separated Arrow Pointer */}
+            <div className="mb-4">
+                <div
+                    className="w-0 h-0
+                     border-l-[12px] border-l-transparent
+                     border-r-[12px] border-r-transparent
+                     border-t-[14px]"
+                    style={{
+                        borderTopColor: '#65A1C9',
+                        filter: 'drop-shadow(0 2px 2px rgba(0,0,0,0.1))'
+                    }}
+                />
             </div>
 
             {/* Mascot Image */}

@@ -428,27 +428,26 @@ export function QuickEntryFlow({
   const stepConfig = STEP_CONFIG[currentStep];
 
   return (
-    <div className="h-screen max-h-screen bg-[#1B4034] flex flex-col overflow-hidden page-ambient">
+    <div className="h-screen max-h-screen bg-background flex flex-col overflow-hidden page-ambient">
       {/* Header */}
-      <div className="flex items-center justify-between px-4 py-3 border-b border-white/10">
+      <div className="flex items-center justify-between px-4 py-3 border-b border-foreground/10">
         <button
           onClick={goBack}
-          className="flex items-center gap-2 text-secondary-text hover:text-white transition-colors"
-        >
+          className="flex items-center gap-2 text-secondary-text hover:text-foreground transition-colors">
           <span className="text-lg">←</span>
           <span className="text-sm">
             {currentStep === 'amount' ? 'Cancel' : 'Back'}
           </span>
         </button>
 
-        <h1 className="text-sm font-medium text-white">Quick Entry</h1>
+        <h1 className="text-sm font-medium text-foreground">Quick Entry</h1>
 
         {currentStep !== 'review' ? (
           <div className="flex items-center gap-4">
             {returnToReview && (
               <button
                 onClick={handleReturnToReview}
-                className="text-white/70 text-sm font-medium hover:text-white transition-colors"
+                className="text-foreground/70 text-sm font-medium hover:text-foreground transition-colors"
               >
                 Review
               </button>
@@ -477,7 +476,7 @@ export function QuickEntryFlow({
             searchableSteps.includes(currentStep) ? (
               <button
                 onClick={handleToggleSearch}
-                className={`p-2 rounded-full transition-all duration-200 ${showSearch ? 'bg-white/20 text-white' : 'bg-white/5 text-white/70 hover:bg-white/10 hover:text-white'}`}
+                className={`p-2 rounded-full transition-all duration-200 ${showSearch ? 'bg-foreground/20 text-foreground' : 'bg-foreground/5 text-foreground/70 hover:bg-foreground/10 hover:text-foreground'}`}
               >
                 <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
@@ -491,8 +490,8 @@ export function QuickEntryFlow({
                   px-4 py-1.5 rounded-full font-bold text-sm
                   transition-all duration-200
                   ${isSubmitting || !(data.value && data.category && data.target)
-                    ? 'bg-white/10 text-white/30 cursor-not-allowed'
-                    : 'bg-[#A9D9C7] text-[#1B4034] hover:bg-[#A9D9C7]/90 active:scale-[0.98]'
+                    ? 'bg-foreground/10 text-foreground/30 cursor-not-allowed'
+                    : 'bg-primary text-primary-foreground hover:bg-primary/90 active:scale-[0.98]'
                   }
                 `}
               >

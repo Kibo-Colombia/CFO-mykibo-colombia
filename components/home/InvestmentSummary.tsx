@@ -37,13 +37,13 @@ export function InvestmentSummary({ totalInvested, pendingToInvest, currency = '
                 <div className="relative z-10">
                     <div className="flex justify-between items-start mb-3">
                         <div>
-                            <p className="text-label text-kibo-teal mb-1">Total Invertido</p>
+                            <p className="text-label text-kibo-blue mb-1">Total Invertido</p>
                             <p className="text-2xl md:text-3xl font-bold text-white font-mono tracking-tight">
                                 {formatCurrency(totalInvested, currency)}
                             </p>
                         </div>
                         <div className="w-12 h-12 rounded-xl bg-kibo-purple/20 flex items-center justify-center">
-                            <svg className="w-6 h-6 text-kibo-teal" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <svg className="w-6 h-6 text-kibo-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
                                     d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
                             </svg>

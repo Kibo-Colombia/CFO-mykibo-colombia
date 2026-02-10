@@ -16,11 +16,12 @@ export default function FloatingFilterButton({ onClick, count, isOpen = false }:
     setMounted(true);
   }, []);
 
-  // Colors: When closed - dark bg with Teal icon. When open - Teal bg with dark icon
-  const bgColor = isOpen ? 'var(--color-total)' : 'var(--color-kibo-bg)';
-  const iconColor = isOpen ? 'var(--color-kibo-bg)' : 'var(--color-total)';
+  // Colors: When closed - dark bg with Blue icon. When open - Blue bg with dark icon
+  const DARK_BLUE = '#1A3040';
+  const bgColor = isOpen ? 'var(--color-total)' : DARK_BLUE;
+  const iconColor = isOpen ? DARK_BLUE : 'var(--color-total)';
   const borderColor = isOpen ? 'rgba(255,255,255,0.3)' : 'var(--color-total)';
-  const shadowColor = isOpen ? 'var(--color-total)' : 'rgba(169, 217, 199, 0.3)'; // Teal-ish shadow
+  const shadowColor = isOpen ? 'var(--color-total)' : 'rgba(101, 161, 201, 0.3)'; // Blue-ish shadow
 
   const buttonContent = (
     <button
@@ -71,7 +72,7 @@ export default function FloatingFilterButton({ onClick, count, isOpen = false }:
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          border: '2px solid var(--color-kibo-bg)',
+          border: `2px solid ${DARK_BLUE}`,
         }}>
           {count}
         </span>

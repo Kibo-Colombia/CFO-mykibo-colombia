@@ -126,8 +126,8 @@ export function DashboardView({
     // Loading State
     if (loading) {
         return (
-            <div className="min-h-screen bg-[#1B4034] flex items-center justify-center">
-                <div className="loading-spinner loading-spinner--lg border-growth-green"></div>
+            <div className="min-h-screen bg-background flex items-center justify-center">
+                <div className="loading-spinner loading-spinner--lg border-kibo-blue"></div>
             </div>
         );
     }
@@ -138,7 +138,7 @@ export function DashboardView({
     }
 
     return (
-        <div className="min-h-screen bg-[#1B4034] font-sans text-white pb-48 page-ambient">
+        <div className="min-h-screen bg-background font-sans text-foreground pb-48 page-ambient">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 relative z-10">
 
                 {/* Header */}

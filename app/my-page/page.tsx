@@ -111,22 +111,22 @@ export default function MyPage() {
 
     if (!mounted || loading) {
         return (
-            <div className="min-h-screen bg-[#1B4034] flex items-center justify-center">
-                <Loader2 className="w-8 h-8 text-[#A9D9C7] animate-spin" />
+            <div className="min-h-screen bg-background flex items-center justify-center">
+                <Loader2 className="w-8 h-8 text-primary animate-spin" />
             </div>
         );
     }
 
     return (
-        <div className="min-h-screen bg-[#1B4034] pb-24 text-white">
+        <div className="min-h-screen bg-background pb-24 text-foreground">
             {/* Header */}
             <header className="px-6 py-6 flex items-center justify-between max-w-lg mx-auto">
                 <h1 className="text-2xl font-bold tracking-tight">My Page</h1>
                 <Link
                     href="/my-page/settings"
-                    className="p-2 rounded-full bg-[#1B4034] hover:bg-[#1B4032] transition-colors border border-[#A9D9C7]"
+                    className="p-2 rounded-full bg-background hover:bg-muted transition-colors border border-primary"
                 >
-                    <Settings className="w-5 h-5 text-white" />
+                    <Settings className="w-5 h-5 text-foreground" />
                 </Link>
             </header>
 
@@ -135,18 +135,18 @@ export default function MyPage() {
                 {/* Profile Card & Connected Apps */}
                 <section className="space-y-6">
                     {/* User Profile Info */}
-                    <div className="flex flex-col items-center p-6 rounded-3xl bg-[#1B4032] border border-[#A9D9C7]">
-                        <div className="w-20 h-20 rounded-full bg-[#A9D9C7] flex items-center justify-center text-white font-bold text-xl mb-4 overflow-hidden border-2 border-[#1B4034]">
+                    <div className="flex flex-col items-center p-6 rounded-3xl bg-card border border-primary">
+                        <div className="w-20 h-20 rounded-full bg-primary flex items-center justify-center text-primary-foreground font-bold text-xl mb-4 overflow-hidden border-2 border-background">
                             {profileData.avatar_url ? (
                                 <img src={profileData.avatar_url} alt="Profile" className="w-full h-full object-cover" />
                             ) : (
-                                <User className="w-10 h-10 text-[#1B4034]" />
+                                <User className="w-10 h-10 text-background" />
                             )}
                         </div>
-                        <h2 className="text-xl font-bold text-white text-center">
+                        <h2 className="text-xl font-bold text-foreground text-center">
                             {profileData.full_name || 'Kibo User'}
                         </h2>
-                        <p className="text-sm text-[#A9D9C7] text-center opacity-80">{profileData.email}</p>
+                        <p className="text-sm text-primary text-center opacity-80">{profileData.email}</p>
                     </div>
                 </section>
 
@@ -154,14 +154,14 @@ export default function MyPage() {
                 <section>
                     <div className="mb-6 flex items-start justify-between">
                         <div>
-                            <h2 className="text-xl font-bold text-white mb-2">Design Your Life</h2>
-                            <p className="text-[#A9D9C7] text-sm leading-relaxed">
+                            <h2 className="text-xl font-bold text-foreground mb-2">Design Your Life</h2>
+                            <p className="text-primary text-sm leading-relaxed">
                                 I&apos;m here to help you afford the life you actually want. Let&apos;s figure out what matters to you (and what doesn&apos;t) so you can do more of the fun stuff.
                             </p>
                         </div>
                         <button
                             onClick={() => isEditing ? handleSave() : setIsEditing(true)}
-                            className={`p-2 rounded-full ring-1 ring-inset transition-all ml-4 shrink-0 shadow-lg ${isEditing ? 'bg-[#A9D9C7] ring-[#A9D9C7] text-[#1B4034]' : 'bg-[#1B4032] ring-[#A9D9C7] text-[#A9D9C7]'}`}
+                            className={`p-2 rounded-full ring-1 ring-inset transition-all ml-4 shrink-0 shadow-lg ${isEditing ? 'bg-primary ring-primary text-primary-foreground' : 'bg-card ring-primary text-primary'}`}
                         >
                             {isEditing ? <Check className="w-5 h-5" /> : <Pencil className="w-5 h-5" />}
                         </button>
@@ -218,37 +218,45 @@ export default function MyPage() {
                 </section>
 
                 {/* Connected Apps */}
-                <div className="p-6 rounded-3xl bg-[#1B4032] border border-[#A9D9C7]">
-                    <h3 className="text-lg font-bold mb-4 flex items-center gap-2 text-white">
-                        <span className="text-xl text-[#A9D9C7]">❖</span>
+                <div className="p-6 rounded-3xl bg-card border" style={{ borderColor: '#65A1C9' }}>
+                    <h3 className="text-lg font-bold mb-4 flex items-center gap-2 text-foreground">
+                        <span className="text-xl" style={{ color: '#65A1C9' }}>❖</span>
                         Connected Apps
                     </h3>
                     <div className="grid grid-cols-1 gap-4">
-                        {/* Kibo CFO - Current App */}
-                        <div className="p-4 rounded-2xl bg-[#1B4034] border border-[#65A1C9] relative overflow-hidden group">
+                        {/* Kibo CFO - Current App (Blue) */}
+                        <div className="p-4 rounded-2xl border relative overflow-hidden group transition-all duration-300"
+                            style={{ backgroundColor: 'transparent', borderColor: '#65A1C9' }}
+                            onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#1A3040'}
+                            onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'transparent'}>
                             <div className="flex justify-between items-start mb-2">
-                                <div className="font-bold text-lg text-[#65A1C9]">Mykibo CFO</div>
-                                <span className="text-[10px] bg-[#65A1C9] text-white font-bold px-2 py-1 rounded-full">
+                                <div className="font-bold text-lg" style={{ color: '#65A1C9' }}>Mykibo CFO</div>
+                                <span className="text-[10px] font-bold px-2 py-1 rounded-full"
+                                    style={{ backgroundColor: '#65A1C9', color: '#142430' }}>
                                     You are here
                                 </span>
                             </div>
-                            <p className="text-sm text-[#A9D9C7] opacity-80">Finance & Budgeting</p>
+                            <p className="text-sm opacity-80" style={{ color: '#65A1C9' }}>Finance & Budgeting</p>
                         </div>
 
-                        {/* Kibo Nexus - Link to External */}
+                        {/* Kibo Nexus - Link to External (Green) */}
                         <a
                             href="https://nexus.mykibo.site"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="block p-4 rounded-2xl bg-[#1B4034] border border-[#A9D9C7] relative overflow-hidden group hover:bg-[#1E4332] transition-colors"
+                            className="block p-4 rounded-2xl border relative overflow-hidden group transition-all duration-300"
+                            style={{ backgroundColor: 'transparent', borderColor: '#A9D9C7' }}
+                            onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#1E4332'}
+                            onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
                         >
                             <div className="flex justify-between items-start mb-2">
-                                <div className="font-bold text-lg text-[#A9D9C7]">Mykibo Nexus</div>
-                                <div className="text-[10px] bg-[#A9D9C7] text-[#1B4034] font-bold px-2 py-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity">
+                                <div className="font-bold text-lg" style={{ color: '#A9D9C7' }}>Mykibo Nexus</div>
+                                <div className="text-[10px] font-bold px-2 py-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"
+                                    style={{ backgroundColor: '#A9D9C7', color: '#1E4332' }}>
                                     Launch
                                 </div>
                             </div>
-                            <p className="text-sm text-[#A9D9C7] opacity-80">Digital Campus</p>
+                            <p className="text-sm opacity-80" style={{ color: '#A9D9C7' }}>Digital Campus</p>
                         </a>
                     </div>
                 </div>

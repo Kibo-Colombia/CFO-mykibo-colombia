@@ -47,10 +47,6 @@
   --color-forest: #477365;
   --color-white: #F2F2F2;
 
-  --color-living: #65A1C9;
-  --color-living-dark: #1A3040;
-  --color-living-mid: #3E6D8D;
-
   --color-present: #C24656;
   --color-present-dark: #421C22;
   --color-present-mid: #8C333F;
@@ -59,48 +55,51 @@
   --color-future-dark: #231B45;
   --color-future-mid: #463988;
 
-  --color-kibo-bg: #1B4034;
+  /* Income/Total Palette */
+  --color-total: #65A1C9;
+  /* Blue for Income/Total */
+  --color-total-dark: #1A3040;
+  --color-total-mid: #3E6D8D;
+
+  /* Living Palette */
+  --color-living: #A9D9C7;
+  /* Green for Living */
+  --color-living-dark: #1E4332;
+  --color-living-mid: #477365;
+
+  /* Background changed to Blue for CFO Theme */
+  --color-kibo-bg: #1A3040;
 }
 
 :root {
   --radius: 0.5rem;
 
-  /* === COLOR HIERARCHY (STRICT) === */
+  /* === COLOR HIERARCHY (BLUE EXPERIMENT) === */
 
-  /* 1. Green Palette (Primary/Default) */
-  /* Background: Using #1B4034 as per existing/user preference, or #1E4332 per docs? 
-     Docs say kibo-dark is #1E4332. But current bg is #1B4034. 
-     Keeping #1B4034 as 'background' to minimize disruption unless user asked to switch. 
-     Actually, docs say "Backgrounds" use Green Palette. 
-     Let's map correctly: */
-  --background: #1B4034;
+  /* 1. Blue Palette (Primary/Default) */
+  --background: #142430;
+  /* Darker Blue Background */
   --foreground: #F2F2F2;
 
-  /* Components using Link/Mint */
-  --card: #1E4332;
-  /* Docs: .kibo-card: Dark Green background (#1E4332) */
+  /* Components */
+  --card: #1A3040;
+  /* Blue Card Background */
   --card-foreground: #F2F2F2;
 
-  --popover: #1E4332;
+  --popover: #1A3040;
   --popover-foreground: #F2F2F2;
 
-  /* Primary Action -> Mint Green */
-  --primary: #A9D9C7;
-  --primary-foreground: #1B4034;
+  /* Primary Action -> Living Blue */
+  --primary: #65A1C9;
+  --primary-foreground: #142430;
 
-  /* Secondary -> Mapped to Blue/Living for CFO context or fallback? 
-     Docs say Blue is "MANUAL SELECTION ONLY" for CFO branding. 
-     But we need a secondary. Let's use Forest Green or Mint dim? 
-     Let's stick to Mint for consistency or define a secondary. 
-     Docs didn't explicitly define 'secondary' semantic token, only palettes.
-     We will use Forest Green for muted/secondary elements. */
-  --secondary: #477365;
-  --secondary-foreground: #F2F2F2;
+  /* Secondary -> Mint Green (Old Primary) */
+  --secondary: #A9D9C7;
+  --secondary-foreground: #1B4034;
 
   /* Muted */
-  --muted: #1B4034;
-  /* Slightly different from card */
-  --muted-foreground: #A9D9C7;
+  --muted: #1A3040;
+  --muted-foreground: #65A1C9;
 
   /* Accent -> Purple (Future) */
   --accent: #614FBB;
@@ -110,53 +109,50 @@
   --destructive: #C24656;
   --destructive-foreground: #F2F2F2;
 
-  /* Borders -> Green (#A9D9C7) */
-  --border: #A9D9C7;
-  --input: #1B4034;
-  --ring: #A9D9C7;
+  /* Borders -> Blue */
+  --border: #65A1C9;
+  --input: #1A3040;
+  --ring: #65A1C9;
 
   /* Chart Mappings */
-  --chart-1: #A9D9C7;
-  /* Total/Primary */
-  --chart-2: #65A1C9;
-  /* Living */
+  --chart-1: #65A1C9;
+  /* Blue takes priority */
+  --chart-2: #A9D9C7;
   --chart-3: #C24656;
-  /* Present */
   --chart-4: #614FBB;
-  /* Future */
   --chart-5: #F2F2F2;
 
-  --sidebar: #1B4034;
+  --sidebar: #142430;
   --sidebar-foreground: #F2F2F2;
-  --sidebar-primary: #A9D9C7;
-  --sidebar-primary-foreground: #1B4034;
-  --sidebar-accent: #1E4332;
+  --sidebar-primary: #65A1C9;
+  --sidebar-primary-foreground: #142430;
+  --sidebar-accent: #1A3040;
   --sidebar-accent-foreground: #F2F2F2;
-  --sidebar-border: #A9D9C7;
-  --sidebar-ring: #A9D9C7;
+  --sidebar-border: #65A1C9;
+  --sidebar-ring: #65A1C9;
 }
 
 .dark {
   /* Enforce Critical Palette in Dark Mode too (Solid Theme) */
-  --background: #1B4034;
+  --background: #142430;
   --foreground: #F2F2F2;
-  --card: #1E4332;
+  --card: #1A3040;
   --card-foreground: #F2F2F2;
-  --popover: #1E4332;
+  --popover: #1A3040;
   --popover-foreground: #F2F2F2;
-  --primary: #A9D9C7;
-  --primary-foreground: #1B4034;
-  --secondary: #477365;
-  --secondary-foreground: #F2F2F2;
-  --muted: #1B4034;
-  --muted-foreground: #A9D9C7;
+  --primary: #65A1C9;
+  --primary-foreground: #142430;
+  --secondary: #A9D9C7;
+  --secondary-foreground: #1B4034;
+  --muted: #1A3040;
+  --muted-foreground: #65A1C9;
   --accent: #614FBB;
   --accent-foreground: #F2F2F2;
   --destructive: #C24656;
   --destructive-foreground: #F2F2F2;
-  --border: #A9D9C7;
-  --input: #1B4034;
-  --ring: #A9D9C7;
+  --border: #65A1C9;
+  --input: #1A3040;
+  --ring: #65A1C9;
 }
 
 @layer base {

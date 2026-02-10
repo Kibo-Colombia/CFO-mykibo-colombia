@@ -19,7 +19,7 @@ export default function TransactionTable({ expenses }: TransactionTableProps) {
         <h2 className="text-label text-secondary-text">Recent Transactions</h2>
         <span className="text-xs font-mono text-cobalt-blue">{expenses.length} TOTAL</span>
       </div>
-      
+
       {/* Mobile Card View */}
       <div className="md:hidden">
         {recentExpenses.map((expense, idx) => (
@@ -31,10 +31,9 @@ export default function TransactionTable({ expenses }: TransactionTableProps) {
               </div>
               <div className="text-right">
                 <span className="block text-lg font-bold text-white font-mono">{formatCurrency(expense.value)}</span>
-                <span className={`inline-block px-2 py-0.5 text-[10px] font-bold uppercase rounded-sm border ${
-                    expense.target === 'Living' ? 'bg-cobalt-blue/10 text-cobalt-blue border-cobalt-blue/20' : 
-                    expense.target === 'Present' ? 'bg-electric-orange/10 text-electric-orange border-electric-orange/20' : 
-                    'bg-acid-green/10 text-acid-green border-acid-green/20'}`}>
+                <span className={`inline-block px-2 py-0.5 text-[10px] font-bold uppercase rounded-sm border ${expense.target === 'Living' ? 'bg-growth-green/10 text-growth-green border-growth-green/20' :
+                    expense.target === 'Present' ? 'bg-alert-amber/10 text-alert-amber border-alert-amber/20' :
+                      'bg-flux-violet/10 text-flux-violet border-flux-violet/20'}`}>
                   {expense.target}
                 </span>
               </div>
@@ -69,10 +68,9 @@ export default function TransactionTable({ expenses }: TransactionTableProps) {
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-secondary-text">{expense.shop}</td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm font-bold text-white text-right font-mono tracking-wide">{formatCurrency(expense.value)}</td>
                 <td className="px-6 py-4 whitespace-nowrap">
-                  <span className={`px-2 py-1 inline-flex text-xs leading-4 font-bold uppercase tracking-wider rounded-sm border ${
-                    expense.target === 'Living' ? 'bg-cobalt-blue/10 text-cobalt-blue border-cobalt-blue/30' : 
-                    expense.target === 'Present' ? 'bg-electric-orange/10 text-electric-orange border-electric-orange/30' : 
-                    'bg-acid-green/10 text-acid-green border-acid-green/30'}`}>
+                  <span className={`px-2 py-1 inline-flex text-xs leading-4 font-bold uppercase tracking-wider rounded-sm border ${expense.target === 'Living' ? 'bg-growth-green/10 text-growth-green border-growth-green/30' :
+                      expense.target === 'Present' ? 'bg-alert-amber/10 text-alert-amber border-alert-amber/30' :
+                        'bg-flux-violet/10 text-flux-violet border-flux-violet/30'}`}>
                     {expense.target}
                   </span>
                 </td>

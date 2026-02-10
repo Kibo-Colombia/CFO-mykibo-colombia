@@ -144,9 +144,9 @@ export default function FilterPanel({ filters, onChange, uniqueValues }: FilterP
                 key={target}
                 onClick={() => handleMultiSelect('targets', target)}
                 className={`liquid-button px-5 py-2 text-sm ${filters.targets.includes(target)
-                  ? target === 'Living' ? 'bg-[#487363] text-white' : // cat-sage
-                    target === 'Present' ? 'bg-[#A9D9C7] text-black' : // cat-pale
-                      'bg-[#8DF2CD] text-black' // cat-mint
+                  ? target === 'Living' ? 'bg-growth-green text-void-black border-growth-green' :    // Green for Living
+                    target === 'Present' ? 'bg-alert-amber text-void-black border-alert-amber' :     // Red for Present  
+                      'bg-flux-violet text-white border-flux-violet'                                  // Purple for Future
                   : 'bg-card border border-white/5 hover:bg-white/5 text-muted-foreground'
                   }`}
               >

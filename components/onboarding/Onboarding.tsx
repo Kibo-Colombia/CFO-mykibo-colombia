@@ -11,7 +11,7 @@ interface OnboardingProps {
 export function Onboarding({ userName }: OnboardingProps) {
   const { startTour } = useTour();
   return (
-    <div className="min-h-screen bg-[#1B4034] flex flex-col items-center justify-center p-6 relative overflow-hidden">
+    <div className="min-h-screen bg-background flex flex-col items-center justify-center p-6 relative overflow-hidden">
       {/* Ambient background glow */}
       <div className="absolute top-[-20%] left-[-10%] w-[400px] h-[400px] bg-cyber-cyan/10 rounded-full blur-[100px] pointer-events-none" />
       <div className="absolute bottom-[-20%] right-[-10%] w-[400px] h-[400px] bg-growth-green/10 rounded-full blur-[100px] pointer-events-none" />

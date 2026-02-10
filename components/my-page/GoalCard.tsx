@@ -42,22 +42,22 @@ export const GoalCard: React.FC<GoalCardProps> = ({
     }, []);
 
     return (
-        <div className="bg-[#1B4032] border border-[#A9D9C7] rounded-2xl p-5 transition-all">
+        <div className="bg-card border border-primary rounded-2xl p-5 transition-all">
             <div className="flex items-start justify-between mb-3">
                 <div className="flex items-center gap-2">
-                    <Icon className="w-5 h-5 text-[#A9D9C7]" strokeWidth={1.5} />
+                    <Icon className="w-5 h-5 text-primary" strokeWidth={1.5} />
                     <label className="text-lg font-semibold">{title}</label>
                 </div>
                 <button
                     onClick={() => setShowHelp(!showHelp)}
-                    className={`transition-colors ${showHelp ? 'text-white' : 'text-[#A9D9C7] hover:text-white'}`}
+                    className={`transition-colors ${showHelp ? 'text-white' : 'text-primary hover:text-white'}`}
                 >
                     <Info className="w-5 h-5" strokeWidth={1.5} />
                 </button>
             </div>
 
             {showHelp && (
-                <p className="text-sm text-[#A9D9C7] mb-4 italic leading-relaxed animate-in fade-in slide-in-from-top-1 duration-200">
+                <p className="text-sm text-primary mb-4 italic leading-relaxed animate-in fade-in slide-in-from-top-1 duration-200">
                     {helpText}
                 </p>
             )}
@@ -69,7 +69,7 @@ export const GoalCard: React.FC<GoalCardProps> = ({
                         <select
                             value={value}
                             onChange={(e) => onChange(e.target.value)}
-                            className="w-full appearance-none bg-[#1B4034] border border-[#A9D9C7]/30 rounded-xl p-3 text-white focus:outline-none focus:border-[#A9D9C7]"
+                            className="w-full appearance-none bg-background border border-primary/30 rounded-xl p-3 text-foreground focus:outline-none focus:border-primary"
                         >
                             <option value="" disabled>{placeholder}</option>
                             {ALL_CATEGORIES.map((item) => (
@@ -78,7 +78,7 @@ export const GoalCard: React.FC<GoalCardProps> = ({
                                 </option>
                             ))}
                         </select>
-                        <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-[#A9D9C7]">
+                        <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-primary">
                             <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
                                 <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
                             </svg>
@@ -90,15 +90,15 @@ export const GoalCard: React.FC<GoalCardProps> = ({
                         value={value}
                         onChange={(e) => onChange(e.target.value)}
                         placeholder={placeholder}
-                        className="w-full bg-[#1B4034] border border-[#A9D9C7]/30 rounded-xl p-3 text-white placeholder-[#A9D9C7]/50 focus:outline-none focus:border-[#A9D9C7]"
+                        className="w-full bg-background border border-primary/30 rounded-xl p-3 text-foreground placeholder-primary/50 focus:outline-none focus:border-primary"
                     />
                 )
             ) : (
-                <div className="w-full bg-[#1B4034]/20 border border-transparent rounded-xl p-3 text-white min-h-[48px] flex items-center">
+                <div className="w-full bg-background/20 border border-transparent rounded-xl p-3 text-foreground min-h-[48px] flex items-center">
                     {value ? (
                         <span className="font-medium">{value}</span>
                     ) : (
-                        <span className="text-[#A9D9C7]/40 italic">Not set yet</span>
+                        <span className="text-primary/40 italic">Not set yet</span>
                     )}
                 </div>
             )}
@@ -109,7 +109,7 @@ export const GoalCard: React.FC<GoalCardProps> = ({
                 {(isEditing || detailsValue) && (
                     <button
                         onClick={() => setShowDetails(!showDetails)}
-                        className="self-start text-xs text-[#A9D9C7] hover:text-white transition-colors font-medium flex items-center gap-1 mt-1"
+                        className="self-start text-xs text-primary hover:text-white transition-colors font-medium flex items-center gap-1 mt-1"
                     >
                         {showDetails ? <Minus className="w-3 h-3" /> : <Plus className="w-3 h-3" />} details
                     </button>
@@ -117,17 +117,17 @@ export const GoalCard: React.FC<GoalCardProps> = ({
 
                 {showDetails && (
                     <div className="mt-2 animate-in fade-in slide-in-from-top-1">
-                        <p className="text-xs text-[#A9D9C7] mb-2 font-medium">{detailsQuestion}</p>
+                        <p className="text-xs text-primary mb-2 font-medium">{detailsQuestion}</p>
                         {isEditing ? (
                             <textarea
                                 value={detailsValue}
                                 onChange={(e) => onDetailsChange(e.target.value)}
                                 placeholder={detailsPlaceholder}
-                                className="w-full bg-[#1B4034]/50 border border-[#A9D9C7]/20 rounded-lg p-3 text-sm text-white placeholder-[#A9D9C7]/40 focus:outline-none focus:border-[#A9D9C7]/50 min-h-[80px]"
+                                className="w-full bg-background/50 border border-primary/20 rounded-lg p-3 text-sm text-foreground placeholder-primary/40 focus:outline-none focus:border-primary/50 min-h-[80px]"
                             />
                         ) : (
-                            <div className="w-full bg-[#1B4034]/20 border border-transparent rounded-lg p-3 text-sm text-white/90 min-h-[60px] whitespace-pre-wrap">
-                                {detailsValue || <span className="text-[#A9D9C7]/40 italic">No details added.</span>}
+                            <div className="w-full bg-background/20 border border-transparent rounded-lg p-3 text-sm text-foreground/90 min-h-[60px] whitespace-pre-wrap">
+                                {detailsValue || <span className="text-primary/40 italic">No details added.</span>}
                             </div>
                         )}
                     </div>

@@ -86,7 +86,7 @@ export default function HomePage() {
                 label: 'Total',
                 spent: totalSpent,
                 budget: totalBudget,
-                color: '#A9D9C7' // Total (Teal)
+                color: '#65A1C9' // Total (Blue)
             },
             {
                 label: 'Future',
@@ -98,7 +98,7 @@ export default function HomePage() {
                 label: 'Living',
                 spent: livingSpent,
                 budget: livingBudget,
-                color: '#65A1C9' // Living (Blue)
+                color: '#A9D9C7' // Living (Green)
             },
             {
                 label: 'Present',

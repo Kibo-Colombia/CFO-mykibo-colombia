@@ -42,20 +42,20 @@ function LoginForm() {
   };
 
   return (
-    <div className="min-h-screen bg-[#1B4034] flex items-center justify-center p-6 page-ambient">
+    <div className="min-h-screen bg-background flex items-center justify-center p-6 page-ambient">
       <div className="w-full max-w-md relative z-10">
         {/* Header */}
         <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold text-[#F2F2F2] mb-2">Welcome Back</h1>
-          <p className="text-[#A9D9C7]">Sign in to your Kibo account</p>
+          <h1 className="text-3xl font-bold text-foreground mb-2">Welcome Back</h1>
+          <p className="text-primary">Sign in to your Kibo account</p>
         </div>
 
         {/* Login Form */}
         <form onSubmit={handleLogin} className="space-y-6">
-          <div className="bg-[#1B4034] border border-[#A9D9C7] p-6 rounded-xl shadow-lg">
+          <div className="bg-background border border-primary p-6 rounded-xl shadow-lg">
             {/* Email */}
             <div>
-              <label className="block text-sm font-medium text-[#A9D9C7] mb-2">
+              <label className="block text-sm font-medium text-primary mb-2">
                 Email
               </label>
               <input
@@ -64,15 +64,15 @@ function LoginForm() {
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="your@email.com"
                 required
-                className="w-full px-4 py-3 rounded-xl bg-[#1B4032] border border-[#A9D9C7]/30
-                           text-[#F2F2F2] placeholder:text-[#F2F2F2]/30
-                           focus:border-[#A9D9C7] focus:outline-none transition-colors"
+                className="w-full px-4 py-3 rounded-xl bg-muted border border-primary/30
+                           text-foreground placeholder:text-foreground/30
+                           focus:border-primary focus:outline-none transition-colors"
               />
             </div>
 
             {/* Password */}
             <div className="mt-4">
-              <label className="block text-sm font-medium text-[#A9D9C7] mb-2">
+              <label className="block text-sm font-medium text-primary mb-2">
                 Password
               </label>
               <input
@@ -81,9 +81,9 @@ function LoginForm() {
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="••••••••"
                 required
-                className="w-full px-4 py-3 rounded-xl bg-[#1B4032] border border-[#A9D9C7]/30
-                           text-[#F2F2F2] placeholder:text-[#F2F2F2]/30
-                           focus:border-[#A9D9C7] focus:outline-none transition-colors"
+                className="w-full px-4 py-3 rounded-xl bg-muted border border-primary/30
+                           text-foreground placeholder:text-foreground/30
+                           focus:border-primary focus:outline-none transition-colors"
               />
             </div>
 
@@ -101,8 +101,8 @@ function LoginForm() {
               className={`
                 w-full mt-6 py-4 rounded-xl font-bold text-lg transition-all duration-200
                 ${loading
-                  ? 'bg-[#A9D9C7]/50 text-[#1B4034] cursor-not-allowed'
-                  : 'bg-[#A9D9C7] text-[#1B4034] hover:bg-white hover:shadow-[0_0_20px_rgba(169,217,199,0.3)]'
+                  ? 'bg-primary/50 text-primary-foreground cursor-not-allowed'
+                  : 'bg-primary text-primary-foreground hover:bg-foreground hover:shadow-[0_0_20px_rgba(0,0,0,0.3)]'
                 }
               `}
             >
@@ -122,11 +122,11 @@ function LoginForm() {
         </form>
 
         {/* Sign Up Link */}
-        <p className="text-center text-[#A9D9C7]/70 mt-6">
+        <p className="text-center text-primary/70 mt-6">
           Don&apos;t have an account?{' '}
           <Link
             href="/signup"
-            className="text-[#A9D9C7] hover:text-white transition-colors font-bold"
+            className="text-primary hover:text-foreground transition-colors font-bold"
           >
             Sign up
           </Link>
@@ -136,7 +136,7 @@ function LoginForm() {
         <p className="text-center mt-4">
           <Link
             href="/"
-            className="text-[#F2F2F2]/50 hover:text-[#F2F2F2] text-sm transition-colors"
+            className="text-foreground/50 hover:text-foreground text-sm transition-colors"
           >
             ← Back to home
           </Link>
@@ -150,8 +150,8 @@ function LoginForm() {
 
 function LoginLoading() {
   return (
-    <div className="min-h-screen bg-[#1B4034] flex items-center justify-center">
-      <div className="w-12 h-12 rounded-full border-4 border-[#A9D9C7]/30 border-t-[#A9D9C7] animate-spin"></div>
+    <div className="min-h-screen bg-background flex items-center justify-center">
+      <div className="w-12 h-12 rounded-full border-4 border-primary/30 border-t-primary animate-spin"></div>
     </div>
   );
 }

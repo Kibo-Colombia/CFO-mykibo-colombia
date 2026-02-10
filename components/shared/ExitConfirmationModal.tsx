@@ -24,8 +24,8 @@ export function ExitConfirmationModal({
     if (!isOpen) return null;
 
     return (
-        <div className="fixed inset-0 z-[1000] flex items-center justify-center p-4 bg-[#1B4034]/80 backdrop-blur-sm animate-fade-in">
-            <div className="w-full max-w-sm bg-[#1B4032] border border-white/20 rounded-3xl p-6 shadow-2xl scale-100 animate-scale-up">
+        <div className="fixed inset-0 z-[1000] flex items-center justify-center p-4 bg-background/80 backdrop-blur-sm animate-fade-in">
+            <div className="w-full max-w-sm bg-muted border border-foreground/20 rounded-3xl p-6 shadow-2xl scale-100 animate-scale-up">
 
                 <div className="flex flex-col items-center text-center space-y-4">
                     <div className="w-16 h-16 rounded-full bg-alert-amber/20 flex items-center justify-center mb-2">
@@ -36,15 +36,15 @@ export function ExitConfirmationModal({
                         </svg>
                     </div>
 
-                    <h3 className="text-xl font-bold text-white">{title}</h3>
-                    <p className="text-[#A9D9C7] text-sm leading-relaxed">
+                    <h3 className="text-xl font-bold text-foreground">{title}</h3>
+                    <p className="text-primary text-sm leading-relaxed">
                         {message}
                     </p>
 
                     <div className="w-full grid grid-cols-2 gap-3 pt-2">
                         <button
                             onClick={onCancel}
-                            className="w-full py-3 rounded-xl font-semibold bg-white/5 text-white border border-white/10 hover:bg-white/10 transition-colors"
+                            className="w-full py-3 rounded-xl font-semibold bg-foreground/5 text-foreground border border-foreground/10 hover:bg-foreground/10 transition-colors"
                         >
                             {cancelText}
                         </button>

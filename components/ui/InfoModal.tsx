@@ -48,7 +48,7 @@ export default function InfoModal({ isOpen, onClose, title, description }: InfoM
       />
 
       <div
-        className={`relative w-full max-w-sm bg-[#1B4034] border border-[#A9D9C7]/20 rounded-3xl p-6 shadow-2xl transform transition-all duration-200 ease-out ${visible ? 'scale-100 opacity-100 translate-y-0' : 'scale-[0.98] opacity-0 translate-y-2'
+        className={`relative w-full max-w-sm bg-background border border-primary/20 rounded-3xl p-6 shadow-2xl transform transition-all duration-200 ease-out ${visible ? 'scale-100 opacity-100 translate-y-0' : 'scale-[0.98] opacity-0 translate-y-2'
           }`}
         style={{
           boxShadow: '0 0 40px rgba(0,0,0,0.5)'
@@ -57,7 +57,7 @@ export default function InfoModal({ isOpen, onClose, title, description }: InfoM
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 text-[#A9D9C7]/50 hover:text-[#A9D9C7] transition-colors"
+          className="absolute top-4 right-4 text-primary/50 hover:text-primary transition-colors"
         >
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <line x1="18" y1="6" x2="6" y2="18"></line>
@@ -66,22 +66,22 @@ export default function InfoModal({ isOpen, onClose, title, description }: InfoM
         </button>
 
         {/* Title */}
-        <h3 className="text-xl font-bold text-white mb-3 flex items-center gap-3">
-          <div className="w-8 h-8 rounded-full bg-[#A9D9C7]/10 flex items-center justify-center border border-[#A9D9C7]/20">
+        <h3 className="text-xl font-bold text-foreground mb-3 flex items-center gap-3">
+          <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center border border-primary/20">
             <span className="text-sm">💡</span>
           </div>
           {title}
         </h3>
 
         {/* Description */}
-        <p className="text-[#A9D9C7]/80 text-sm leading-relaxed whitespace-pre-line mb-6">
+        <p className="text-primary/80 text-sm leading-relaxed whitespace-pre-line mb-6">
           {description}
         </p>
 
         {/* Footer */}
         <button
           onClick={onClose}
-          className="w-full py-3 rounded-xl bg-[#1B4032] hover:bg-[#1B4032]/80 border border-[#A9D9C7]/30 text-[#A9D9C7] font-semibold text-sm transition-all active:scale-95 hover:shadow-[0_0_10px_rgba(169,217,199,0.1)]"
+          className="w-full py-3 rounded-xl bg-muted hover:bg-muted/80 border border-primary/30 text-primary font-semibold text-sm transition-all active:scale-95 hover:shadow-[0_0_10px_rgba(0,0,0,0.1)]"
         >
           Got it
         </button>

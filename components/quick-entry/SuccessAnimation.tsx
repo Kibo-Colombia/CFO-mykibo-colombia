@@ -17,7 +17,7 @@ export function SuccessAnimation({ onComplete }: SuccessAnimationProps) {
   }, [onComplete]);
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-[#1B4034]/95 backdrop-blur-sm">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-background/95 backdrop-blur-sm">
       <div className="flex flex-col items-center gap-6 animate-[fadeIn_0.3s_ease-out_forwards]">
         {/* Animated checkmark */}
         <div className="relative">
@@ -69,10 +69,10 @@ export function SuccessAnimation({ onComplete }: SuccessAnimationProps) {
             opacity: 0
           }}
         >
-          <h2 className="text-2xl font-bold text-white mb-2">
+          <h2 className="text-2xl font-bold text-foreground mb-2">
             Transaction Saved!
           </h2>
-          <p className="text-[#A9D9C7]">
+          <p className="text-primary">
             Added to your expense log
           </p>
         </div>

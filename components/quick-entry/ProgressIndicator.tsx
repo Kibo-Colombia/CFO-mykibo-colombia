@@ -27,10 +27,10 @@ export function ProgressIndicator({ currentStep }: ProgressIndicatorProps) {
   return (
     <div className="w-full px-4 py-3">
       {/* Progress bar container */}
-      <div className="relative h-1 bg-white/10 rounded-full overflow-hidden">
+      <div className="relative h-1 bg-foreground/10 rounded-full overflow-hidden">
         {/* Animated progress fill */}
         <div
-          className="absolute left-0 top-0 h-full rounded-full transition-all duration-500 ease-out bg-[#A9D9C7]"
+          className="absolute left-0 top-0 h-full rounded-full transition-all duration-500 ease-out bg-primary"
           style={{
             width: `${progress}%`
           }}

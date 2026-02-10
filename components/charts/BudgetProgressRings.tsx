@@ -12,7 +12,7 @@ interface BudgetProgressRingsProps {
 export default function BudgetProgressRings({ progress }: BudgetProgressRingsProps) {
   return (
     <div className="liquid-card p-6">
-      <h2 className="text-sm font-bold text-secondary-text mb-6 uppercase tracking-wider flex items-center justify-between">
+      <h2 className="text-sm font-bold text-kibo-blue mb-6 uppercase tracking-wider flex items-center justify-between">
         Budget vs Actual
         <span className="text-[10px] bg-white/5 py-1 px-2 rounded-full border border-white/10 font-normal normal-case tracking-normal">
           Monthly Pace
@@ -77,13 +77,19 @@ function RingItem({
     const g = svg.append('g')
       .attr('transform', `translate(${width / 2},${height / 2})`);
 
-    // Background Circle (Track)
+    // Background Circle (Track Outline)
+    // Draw two thin circles to define the track boundaries instead of solid fill
     g.append('circle')
-      .attr('r', radius - strokeWidth / 2)
+      .attr('r', radius - strokeWidth) // Inner boundary
       .attr('fill', 'none')
-      .attr('stroke', '#1B4034') // Darker track
-      .attr('stroke-width', strokeWidth)
-      .attr('opacity', 0.5);
+      .attr('stroke', 'rgba(255,255,255,0.1)')
+      .attr('stroke-width', 1);
+
+    g.append('circle')
+      .attr('r', radius) // Outer boundary
+      .attr('fill', 'none')
+      .attr('stroke', 'rgba(255,255,255,0.1)')
+      .attr('stroke-width', 1);
 
     // Progress Arc
     const arc = d3.arc()

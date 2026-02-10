@@ -133,9 +133,9 @@ export function AutocompleteSelect({
               onKeyDown={handleKeyDown}
               placeholder={placeholder}
               className="w-full px-4 py-3 rounded-xl
-                          bg-white/5 border border-white/10
-                          text-white text-base
-                          outline-none focus:border-[#A9D9C7] focus:bg-white/10
+                          bg-foreground/5 border border-foreground/10
+                          text-foreground text-base
+                          outline-none focus:border-primary focus:bg-foreground/10
                           placeholder:text-secondary-text
                           transition-all duration-200 pr-12"
             />
@@ -146,8 +146,8 @@ export function AutocompleteSelect({
                 onClick={handleCustomSubmit}
                 className="absolute right-2 top-1/2 -translate-y-1/2
                             px-3 py-1.5 rounded-lg
-                            bg-[#A9D9C7] text-[#1B4034] text-xs font-bold
-                            hover:bg-[#A9D9C7]/90 transition-colors"
+                            bg-primary text-primary-foreground text-xs font-bold
+                            hover:bg-primary/90 transition-colors"
               >
                 Add
               </button>
@@ -158,7 +158,7 @@ export function AutocompleteSelect({
                   setSearchTerm('');
                   onSearchClose?.();
                 }}
-                className="absolute right-3 top-1/2 -translate-y-1/2 p-1 text-white/50 hover:text-white"
+                className="absolute right-3 top-1/2 -translate-y-1/2 p-1 text-foreground/50 hover:text-foreground"
               >
                 ✕
               </button>

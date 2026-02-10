@@ -37,10 +37,10 @@ export const ALL_CATEGORIES = [
 export const TARGET_ORDER = ['Income', 'Future', 'Living', 'Present'];
 
 export const TARGET_COLORS: Record<string, { border: string; text: string; bg: string }> = {
-  Income: { border: 'border-[#A9D9C7]', text: 'text-[#A9D9C7]', bg: 'bg-[#A9D9C7]' },
-  Future: { border: 'border-[#614FBB]', text: 'text-[#614FBB]', bg: 'bg-[#614FBB]' },
-  Living: { border: 'border-[#65A1C9]', text: 'text-[#65A1C9]', bg: 'bg-[#65A1C9]' },
-  Present: { border: 'border-[#C24656]', text: 'text-[#C24656]', bg: 'bg-[#C24656]' },
+  Income: { border: 'border-[#65A1C9]', text: 'text-[#65A1C9]', bg: 'bg-[#65A1C9]' },     // Blue for Income/Total
+  Future: { border: 'border-[#614FBB]', text: 'text-[#614FBB]', bg: 'bg-[#614FBB]' },     // Purple for Future
+  Living: { border: 'border-[#A9D9C7]', text: 'text-[#A9D9C7]', bg: 'bg-[#A9D9C7]' },     // Green for Living
+  Present: { border: 'border-[#C24656]', text: 'text-[#C24656]', bg: 'bg-[#C24656]' },    // Red for Present
 };
 
 export const DEFAULT_CONTEXTS = ['Daily', 'Travel', 'Work', 'Gift', 'Personal'] as const;

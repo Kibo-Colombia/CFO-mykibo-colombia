@@ -5,10 +5,10 @@
 
 export const KIBO_COLORS = {
     // Target/Budget Colors
-    Living: '#65A1C9',
-    Present: '#C24656',
-    Saving: '#A9D9C7',
-    Future: '#614FBB',
+    Living: '#A9D9C7',      // Green (Mint) for Living expenses
+    Present: '#C24656',      // Red
+    Saving: '#65A1C9',       // Blue (for savings/totals)
+    Future: '#614FBB',       // Purple
 
     // UI Colors
     CyberCyan: '#A9D9C7',

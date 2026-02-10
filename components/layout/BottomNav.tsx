@@ -76,7 +76,7 @@ export function BottomNav() {
   }
 
   return (
-    <nav className="bottom-nav-fixed fixed bottom-0 left-0 right-0 z-[100] bg-[#1B4034] border-t border-[#A9D9C7] safe-area-pb">
+    <nav className="bottom-nav-fixed fixed bottom-0 left-0 right-0 z-[100] bg-background border-t border-primary safe-area-pb">
       <div className="flex items-center justify-around h-16 max-w-lg mx-auto px-2">
         {navItems.map((item) => {
           const isActive = pathname === item.href || pathname.startsWith(item.href + '/');
@@ -90,7 +90,7 @@ export function BottomNav() {
                 flex flex-col items-center justify-center gap-0.5 px-3 py-2 rounded-xl transition-all
                 ${isActive
                   ? 'text-kibo-teal' // Teal for active
-                  : 'text-[#F2F2F2]/50 hover:text-kibo-teal' // Dimmed white for inactive, Teal on hover
+                  : 'text-foreground/50 hover:text-kibo-teal' // Dimmed for inactive, Teal on hover
                 }
               `}
             >

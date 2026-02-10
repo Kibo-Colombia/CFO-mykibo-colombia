@@ -64,9 +64,9 @@ function KPICard({ label, value, subtext, trend, trendValue, inverseTrend = fals
   accent?: 'total' | 'future' | 'living' | 'present';
 }) {
   // Map accents to Kibo Palette CSS variables
-  // total: Teal (#A9D9C7)
+  // total: Blue (#65A1C9) - Income/Total
   // future: Purple (#614FBB)
-  // living: Blue (#65A1C9)
+  // living: Green (#A9D9C7) - Needs/Essentials
   // present: Red (#C24656)
 
   const accentColors = {
@@ -89,7 +89,7 @@ function KPICard({ label, value, subtext, trend, trendValue, inverseTrend = fals
   return (
     <div className={`liquid-card p-5 h-full relative overflow-hidden group transition-all duration-300 hover:scale-[1.02] border-l-4 first:ml-0 ${accentColors[accent]} shadow-md bg-[#1B4034]`}>
       <div className="flex justify-between items-start mb-3">
-        <h3 className="text-[10px] font-bold uppercase tracking-wider text-[#A9D9C7]/70">{label}</h3>
+        <h3 className="text-[10px] font-bold uppercase tracking-wider text-[#65A1C9]/70">{label}</h3>
         {trend && (
           <span className={`flex items-center text-[10px] font-mono font-bold ${trendColorClass} bg-black/20 px-1.5 py-0.5 rounded-full`}>
             {trend === 'up' ? '▲' : trend === 'down' ? '▼' : '●'} {trendValue}
@@ -101,7 +101,7 @@ function KPICard({ label, value, subtext, trend, trendValue, inverseTrend = fals
 
       {subtext && (
         <div className="mt-4 pt-3 border-t border-white/5 flex items-center justify-between">
-          <p className="text-[10px] text-[#A9D9C7]/50 font-mono uppercase tracking-wider truncate">{subtext}</p>
+          <p className="text-[10px] text-[#65A1C9]/50 font-mono uppercase tracking-wider truncate">{subtext}</p>
         </div>
       )}
     </div>

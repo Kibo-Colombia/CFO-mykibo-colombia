@@ -181,7 +181,7 @@ export default function BurnRateGaugeD3({ spent, budget, onExpand, onInfo, isExp
             <div className="flex items-center gap-2">
               <button
                 onClick={onInfo}
-                className="p-1.5 rounded-lg text-[#A9D9C7]/70 hover:text-[#A9D9C7] hover:bg-[#A9D9C7]/10 transition-all border border-transparent hover:border-[#A9D9C7]/20"
+                className="p-1.5 rounded-lg text-[#65A1C9]/70 hover:text-[#65A1C9] hover:bg-[#65A1C9]/10 transition-all border border-transparent hover:border-[#65A1C9]/20"
                 aria-label="Chart Info"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -192,7 +192,7 @@ export default function BurnRateGaugeD3({ spent, budget, onExpand, onInfo, isExp
               </button>
               <button
                 onClick={onExpand}
-                className="p-1.5 rounded-lg text-[#A9D9C7]/70 hover:text-[#A9D9C7] hover:bg-[#A9D9C7]/10 transition-all border border-transparent hover:border-[#A9D9C7]/20"
+                className="p-1.5 rounded-lg text-[#65A1C9]/70 hover:text-[#65A1C9] hover:bg-[#65A1C9]/10 transition-all border border-transparent hover:border-[#65A1C9]/20"
                 aria-label="Expand Chart"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

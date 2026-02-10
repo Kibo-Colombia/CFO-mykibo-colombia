@@ -54,21 +54,21 @@ export default function SignupPage() {
 
   if (success) {
     return (
-      <div className="min-h-screen bg-[#1B4034] flex items-center justify-center p-6 page-ambient">
+      <div className="min-h-screen bg-background flex items-center justify-center p-6 page-ambient">
         <div className="w-full max-w-md text-center relative z-10">
-          <div className="bg-[#1B4034] border border-[#A9D9C7] p-8 rounded-xl shadow-lg">
-            <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-[#614FBB]/20 flex items-center justify-center">
-              <svg className="w-8 h-8 text-[#614FBB]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <div className="bg-background border border-primary p-8 rounded-xl shadow-lg">
+            <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-accent/20 flex items-center justify-center">
+              <svg className="w-8 h-8 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
               </svg>
             </div>
-            <h2 className="text-2xl font-bold text-[#F2F2F2] mb-2">Check your email</h2>
-            <p className="text-[#A9D9C7] mb-6">
-              We&apos;ve sent a confirmation link to <strong className="text-[#F2F2F2]">{email}</strong>
+            <h2 className="text-2xl font-bold text-foreground mb-2">Check your email</h2>
+            <p className="text-primary mb-6">
+              We&apos;ve sent a confirmation link to <strong className="text-foreground">{email}</strong>
             </p>
             <Link
               href="/login"
-              className="inline-block px-6 py-3 rounded-xl bg-[#A9D9C7] text-[#1B4034] font-bold hover:bg-white transition-colors"
+              className="inline-block px-6 py-3 rounded-xl bg-primary text-primary-foreground font-bold hover:bg-foreground transition-colors"
             >
               Back to Login
             </Link>
@@ -79,20 +79,20 @@ export default function SignupPage() {
   }
 
   return (
-    <div className="min-h-screen bg-[#1B4034] flex items-center justify-center p-6 page-ambient">
+    <div className="min-h-screen bg-background flex items-center justify-center p-6 page-ambient">
       <div className="w-full max-w-md relative z-10">
         {/* Header */}
         <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold text-[#F2F2F2] mb-2">Create Account</h1>
-          <p className="text-[#A9D9C7]">Let's start a new chapter with Kibo</p>
+          <h1 className="text-3xl font-bold text-foreground mb-2">Create Account</h1>
+          <p className="text-primary">Let's start a new chapter with Kibo</p>
         </div>
 
         {/* Signup Form */}
         <form onSubmit={handleSignup} className="space-y-6">
-          <div className="bg-[#1B4034] border border-[#A9D9C7] p-6 rounded-xl shadow-lg">
+          <div className="bg-background border border-primary p-6 rounded-xl shadow-lg">
             {/* Email */}
             <div>
-              <label className="block text-sm font-medium text-[#A9D9C7] mb-2">
+              <label className="block text-sm font-medium text-primary mb-2">
                 Email
               </label>
               <input
@@ -101,15 +101,15 @@ export default function SignupPage() {
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="your@email.com"
                 required
-                className="w-full px-4 py-3 rounded-xl bg-[#1B4032] border border-[#A9D9C7]/30
-                           text-[#F2F2F2] placeholder:text-[#F2F2F2]/30
-                           focus:border-[#A9D9C7] focus:outline-none transition-colors"
+                className="w-full px-4 py-3 rounded-xl bg-muted border border-primary/30
+                           text-foreground placeholder:text-foreground/30
+                           focus:border-primary focus:outline-none transition-colors"
               />
             </div>
 
             {/* Password */}
             <div className="mt-4">
-              <label className="block text-sm font-medium text-[#A9D9C7] mb-2">
+              <label className="block text-sm font-medium text-primary mb-2">
                 Password
               </label>
               <input
@@ -118,15 +118,15 @@ export default function SignupPage() {
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="At least 6 characters"
                 required
-                className="w-full px-4 py-3 rounded-xl bg-[#1B4032] border border-[#A9D9C7]/30
-                           text-[#F2F2F2] placeholder:text-[#F2F2F2]/30
-                           focus:border-[#A9D9C7] focus:outline-none transition-colors"
+                className="w-full px-4 py-3 rounded-xl bg-muted border border-primary/30
+                           text-foreground placeholder:text-foreground/30
+                           focus:border-primary focus:outline-none transition-colors"
               />
             </div>
 
             {/* Confirm Password */}
             <div className="mt-4">
-              <label className="block text-sm font-medium text-[#A9D9C7] mb-2">
+              <label className="block text-sm font-medium text-primary mb-2">
                 Confirm Password
               </label>
               <input
@@ -135,9 +135,9 @@ export default function SignupPage() {
                 onChange={(e) => setConfirmPassword(e.target.value)}
                 placeholder="••••••••"
                 required
-                className="w-full px-4 py-3 rounded-xl bg-[#1B4032] border border-[#A9D9C7]/30
-                           text-[#F2F2F2] placeholder:text-[#F2F2F2]/30
-                           focus:border-[#A9D9C7] focus:outline-none transition-colors"
+                className="w-full px-4 py-3 rounded-xl bg-muted border border-primary/30
+                           text-foreground placeholder:text-foreground/30
+                           focus:border-primary focus:outline-none transition-colors"
               />
             </div>
 
@@ -155,8 +155,8 @@ export default function SignupPage() {
               className={`
                 w-full mt-6 py-4 rounded-xl font-bold text-lg transition-all duration-200
                 ${loading
-                  ? 'bg-[#A9D9C7]/50 text-[#1B4034] cursor-not-allowed'
-                  : 'bg-[#A9D9C7] text-[#1B4034] hover:bg-white hover:shadow-[0_0_20px_rgba(169,217,199,0.3)]'
+                  ? 'bg-primary/50 text-primary-foreground cursor-not-allowed'
+                  : 'bg-primary text-primary-foreground hover:bg-foreground hover:shadow-[0_0_20px_rgba(0,0,0,0.3)]'
                 }
               `}
             >
@@ -176,11 +176,11 @@ export default function SignupPage() {
         </form>
 
         {/* Login Link */}
-        <p className="text-center text-[#A9D9C7]/70 mt-6">
+        <p className="text-center text-primary/70 mt-6">
           Already have an account?{' '}
           <Link
             href="/login"
-            className="text-[#A9D9C7] hover:text-white transition-colors font-bold"
+            className="text-primary hover:text-foreground transition-colors font-bold"
           >
             Sign in
           </Link>
@@ -190,7 +190,7 @@ export default function SignupPage() {
         <p className="text-center mt-4">
           <Link
             href="/"
-            className="text-[#F2F2F2]/50 hover:text-[#F2F2F2] text-sm transition-colors"
+            className="text-foreground/50 hover:text-foreground text-sm transition-colors"
           >
             ← Back to home
           </Link>

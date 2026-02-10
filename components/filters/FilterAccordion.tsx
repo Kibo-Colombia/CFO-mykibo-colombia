@@ -188,13 +188,13 @@ export default function FilterAccordion({
   if (!mounted) return null;
 
   // Shared styles
-  const sectionStyle: React.CSSProperties = { backgroundColor: '#1B4034' };
+  const sectionStyle: React.CSSProperties = { backgroundColor: '#142430' };
   const headerBtnStyle: React.CSSProperties = {
     width: '100%', padding: '16px', display: 'flex', alignItems: 'center',
-    justifyContent: 'space-between', backgroundColor: '#1B4034', border: 'none', cursor: 'pointer'
+    justifyContent: 'space-between', backgroundColor: '#142430', border: 'none', cursor: 'pointer'
   };
   const labelStyle: React.CSSProperties = {
-    color: '#A9D9C7', fontSize: '14px', fontWeight: 500, textTransform: 'uppercase', letterSpacing: '0.05em'
+    color: '#65A1C9', fontSize: '14px', fontWeight: 500, textTransform: 'uppercase', letterSpacing: '0.05em'
   };
   const valueStyle: React.CSSProperties = {
     color: '#F2F2F2', fontSize: '14px', fontWeight: 700, maxWidth: '180px',
@@ -202,9 +202,9 @@ export default function FilterAccordion({
   };
   const chipStyle = (isSelected: boolean): React.CSSProperties => ({
     padding: '10px 16px', borderRadius: '20px', fontSize: '12px', fontWeight: 600,
-    border: isSelected ? '2px solid #614FBB' : '2px solid #1B4032',
+    border: isSelected ? '2px solid #614FBB' : '2px solid #1A3040',
     backgroundColor: isSelected ? '#614FBB' : 'transparent',
-    color: isSelected ? '#F2F2F2' : '#A9D9C7',
+    color: isSelected ? '#F2F2F2' : '#65A1C9',
     cursor: 'pointer', transition: 'all 0.2s ease',
   });
   const resetBtnStyle: React.CSSProperties = {
@@ -455,10 +455,10 @@ export default function FilterAccordion({
       />
       <div className="text-white liquid-card" style={{
         position: 'fixed', left: 0, right: 0, bottom: '64px',
-        backgroundColor: '#1B4034', backdropFilter: 'none',
+        backgroundColor: '#142430', backdropFilter: 'none',
         zIndex: 51, maxHeight: '65vh',
         borderTopLeftRadius: '20px', borderTopRightRadius: '20px',
-        boxShadow: '0 -4px 30px rgba(0,0,0,0.5)', border: '1px solid #A9D9C7',
+        boxShadow: '0 -4px 30px rgba(0,0,0,0.5)', border: '1px solid #65A1C9',
         display: 'flex', flexDirection: 'column',
         transform: visible ? 'translateY(0)' : 'translateY(100%)',
         transition: 'transform 350ms cubic-bezier(0.4, 0, 0.2, 1)',
@@ -481,10 +481,10 @@ export default function FilterAccordion({
         {/* Action Buttons Footer */}
         <div style={{
           padding: '16px',
-          borderTop: '1px solid rgba(169, 217, 199, 0.2)',
+          borderTop: '1px solid rgba(101, 161, 201, 0.2)',
           display: 'flex',
           gap: '12px',
-          backgroundColor: '#1B4034',
+          backgroundColor: '#142430',
         }}>
           <button
             onClick={onSave}
@@ -528,9 +528,9 @@ export default function FilterAccordion({
               width: '52px',
               padding: '14px',
               borderRadius: '12px',
-              backgroundColor: '#1B4032',
-              border: '2px solid #A9D9C7',
-              color: '#A9D9C7',
+              backgroundColor: '#1A3040',
+              border: '2px solid #65A1C9',
+              color: '#65A1C9',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',

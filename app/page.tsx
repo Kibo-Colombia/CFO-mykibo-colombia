@@ -46,26 +46,26 @@ export default function Home() {
   // Loading state
   if (loading) {
     return (
-      <div className="min-h-screen bg-[#1B4034] flex items-center justify-center">
-        <div className="w-8 h-8 border-2 border-[#A9D9C7]/30 border-t-[#A9D9C7] rounded-full animate-spin" />
+      <div className="min-h-screen bg-background flex items-center justify-center">
+        <div className="w-8 h-8 border-2 border-primary/30 border-t-primary rounded-full animate-spin" />
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-[#1B4034] flex flex-col items-center justify-center p-6 relative overflow-hidden">
+    <div className="min-h-screen bg-background flex flex-col items-center justify-center p-6 relative overflow-hidden">
 
       {/* Background Elements - Subtle and Clean */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#614FBB]/10 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent/10 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="relative z-10 flex flex-col items-center max-w-md w-full text-center space-y-8">
 
         {/* Header Text */}
         <div className="space-y-2 animate-fade-in-down">
-          <h1 className="text-4xl md:text-5xl font-bold text-[#F2F2F2] tracking-tight">
+          <h1 className="text-4xl md:text-5xl font-bold text-foreground tracking-tight">
             Welcome to Kibo
           </h1>
-          <p className="text-[#A9D9C7] font-medium tracking-wide text-sm uppercase">
+          <p className="text-primary font-medium tracking-wide text-sm uppercase">
             Your Financial Companion
           </p>
         </div>
@@ -85,14 +85,14 @@ export default function Home() {
         <div className="w-full space-y-4 animate-fade-in-up delay-200">
           <Link
             href="/login"
-            className="block w-full py-4 rounded-xl bg-[#A9D9C7] text-[#1B4034] font-bold text-lg text-center hover:bg-white transition-all active:scale-95 shadow-lg shadow-[#A9D9C7]/10"
+            className="block w-full py-4 rounded-xl bg-primary text-primary-foreground font-bold text-lg text-center hover:bg-foreground transition-all active:scale-95 shadow-lg shadow-primary/10"
           >
             Log In
           </Link>
 
           <Link
             href="/signup"
-            className="block w-full py-4 rounded-xl border-2 border-[#A9D9C7]/30 text-[#F2F2F2] font-semibold text-lg text-center hover:bg-[#A9D9C7]/10 hover:border-[#A9D9C7]/50 transition-all active:scale-95"
+            className="block w-full py-4 rounded-xl border-2 border-primary/30 text-foreground font-semibold text-lg text-center hover:bg-primary/10 hover:border-primary/50 transition-all active:scale-95"
           >
             Create Account
           </Link>
@@ -100,14 +100,14 @@ export default function Home() {
           {/* Tour Button */}
           <button
             onClick={startTour}
-            className="block w-full py-2 rounded-xl text-[#A9D9C7] font-medium text-sm hover:text-white transition-colors"
+            className="block w-full py-2 rounded-xl text-primary font-medium text-sm hover:text-foreground transition-colors"
           >
             Just take a look →
           </button>
         </div>
 
         {/* Footer Text */}
-        <p className="text-[#F2F2F2]/40 text-xs mt-8">
+        <p className="text-foreground/40 text-xs mt-8">
           Kibo, your personal AI CFO
         </p>
 

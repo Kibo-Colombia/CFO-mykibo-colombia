@@ -68,6 +68,17 @@ The design should reflect stability, growth, and clarity. Kibo designs are minim
 - **Headings**: `Outfit` (Bold, typically Green or White).
 - **Body**: `Geist Mono` or `Outfit` (Clean, readable, typically White/Foreground).
 
+## Borders
+
+- ✅ **Default border thickness**: `border` (1px) for ALL elements
+- ✅ Use `border` class, NOT `border-2` unless specifically needed for emphasis
+- ✅ Border colors should match the component's semantic color (primary, living, present, future)
+- ❌ **Never use** thick borders (2px+) for standard UI elements
+- **Examples**:
+  - Cards: `border` with `border-primary`
+  - Buttons: `border` with appropriate semantic color
+  - Connected Apps: `border` with app-specific color
+
 ## Spacing & Layout
 
 - **Padding**: Use generous padding (`p-6`, `p-8` for cards).
