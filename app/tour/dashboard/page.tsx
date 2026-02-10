@@ -19,7 +19,7 @@ function TourDashboardContent() {
 export default function TourDashboardPage() {
     return (
         <Suspense fallback={
-            <div className="min-h-screen bg-[#1B4034] flex items-center justify-center">
+            <div className="min-h-screen bg-kibo-bg flex items-center justify-center">
                 <div className="loading-spinner loading-spinner--lg border-growth-green"></div>
             </div>
         }>

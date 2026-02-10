@@ -29,7 +29,7 @@ export default function ResetStoragePage() {
     };
 
     return (
-        <div className="min-h-screen bg-[#1B4034] flex items-center justify-center p-6">
+        <div className="min-h-screen bg-kibo-bg flex items-center justify-center p-6">
             <div className="max-w-md w-full bg-[#1B4032] border border-white/20 rounded-3xl p-8 shadow-2xl">
                 <div className="text-center space-y-6">
                     <div className="w-20 h-20 rounded-full bg-alert-amber/20 flex items-center justify-center mx-auto">

@@ -136,7 +136,7 @@ export default function QuickEntryPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-[#1B4034] flex items-center justify-center page-ambient">
+      <div className="min-h-screen bg-kibo-bg flex items-center justify-center page-ambient">
         <div className="flex flex-col items-center gap-4">
           <div className="w-12 h-12 border-4 border-cyber-cyan/30 border-t-cyber-cyan rounded-full animate-spin" />
         </div>
@@ -146,7 +146,7 @@ export default function QuickEntryPage() {
 
   if (error) {
     return (
-      <div className="min-h-screen bg-[#1B4034] flex items-center justify-center p-6 page-ambient">
+      <div className="min-h-screen bg-kibo-bg flex items-center justify-center p-6 page-ambient">
         <div className="liquid-card-premium p-6 text-center max-w-sm relative z-10 hover-lift">
           <p className="text-laser-magenta text-lg mb-4 font-bold">Error</p>
           <p className="text-secondary-text mb-6">{error}</p>

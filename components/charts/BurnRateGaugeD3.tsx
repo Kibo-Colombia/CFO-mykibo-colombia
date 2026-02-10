@@ -173,7 +173,7 @@ export default function BurnRateGaugeD3({ spent, budget, onExpand, onInfo, isExp
   }, [spent, budget, isExpanded]);
 
   return (
-    <div className={`${isExpanded ? 'w-full h-full flex flex-col bg-[#1B4034]' : 'liquid-card p-5'}`}>
+    <div className={`${isExpanded ? 'w-full h-full flex flex-col bg-kibo-bg' : 'liquid-card p-5'}`}>
       {!isExpanded && (
         <div className="flex justify-between items-center mb-0">
           <h2 className="text-label text-secondary-text">Burn Rate</h2>

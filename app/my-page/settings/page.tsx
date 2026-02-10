@@ -25,7 +25,7 @@ function ExitConfirmationModal({
     if (!isOpen) return null;
 
     return (
-        <div className="fixed inset-0 z-[1000] flex items-center justify-center p-4 bg-[#1B4034]/80 backdrop-blur-sm animate-fade-in">
+        <div className="fixed inset-0 z-[1000] flex items-center justify-center p-4 bg-kibo-bg/80 backdrop-blur-sm animate-fade-in">
             <div className="w-full max-w-sm bg-[#1B4032] border border-white/20 rounded-3xl p-6 shadow-2xl scale-100 animate-scale-up">
 
                 <div className="flex flex-col items-center text-center space-y-4">
@@ -383,7 +383,7 @@ export default function SettingsPage() {
 
     if (loading) {
         return (
-            <div className="min-h-screen bg-[#1B4034] flex items-center justify-center">
+            <div className="min-h-screen bg-kibo-bg flex items-center justify-center">
                 <div className="w-12 h-12 border-4 border-cyber-cyan/30 border-t-cyber-cyan rounded-full animate-spin" />
             </div>
         );
@@ -391,7 +391,7 @@ export default function SettingsPage() {
 
     return (
         <>
-            <div className="min-h-screen bg-[#1B4034] page-ambient">
+            <div className="min-h-screen bg-kibo-bg page-ambient">
                 {/* Header */}
                 <header className="border-b border-white/10 px-4 py-4">
                     <div className="max-w-2xl mx-auto flex items-center justify-between">
@@ -467,7 +467,7 @@ export default function SettingsPage() {
                                 onChange={(e) => setCurrency(e.target.value)}
                                 className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10
                              text-white focus:border-cyber-cyan focus:outline-none transition-colors
-                             [&>option]:bg-[#1B4034] [&>option]:text-white"
+                             [&>option]:bg-kibo-bg [&>option]:text-white"
                             >
                                 <option value="¥">¥ (Yen)</option>
                                 <option value="$">$ (Dollar)</option>
@@ -654,7 +654,7 @@ export default function SettingsPage() {
                                     value={deleteConfirmText}
                                     onChange={(e) => setDeleteConfirmText(e.target.value)}
                                     placeholder="DELETE"
-                                    className="w-full px-4 py-3 rounded-xl bg-[#1B4034]/50 border border-laser-magenta/50
+                                    className="w-full px-4 py-3 rounded-xl bg-kibo-bg/50 border border-laser-magenta/50
                             text-white placeholder:text-secondary-text/50
                             focus:border-laser-magenta focus:outline-none transition-colors"
                                 />

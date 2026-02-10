@@ -218,25 +218,23 @@ export default function MyPage() {
                 </section>
 
                 {/* Connected Apps */}
-                <div className="p-6 rounded-3xl bg-card border" style={{ borderColor: '#65A1C9' }}>
+                <div className="p-6 rounded-3xl bg-card border border-primary">
                     <h3 className="text-lg font-bold mb-4 flex items-center gap-2 text-foreground">
-                        <span className="text-xl" style={{ color: '#65A1C9' }}>❖</span>
+                        <span className="text-xl text-primary">❖</span>
                         Connected Apps
                     </h3>
                     <div className="grid grid-cols-1 gap-4">
-                        {/* Kibo CFO - Current App (Blue) */}
-                        <div className="p-4 rounded-2xl border relative overflow-hidden group transition-all duration-300"
-                            style={{ backgroundColor: 'transparent', borderColor: '#65A1C9' }}
-                            onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#1A3040'}
-                            onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'transparent'}>
+                        {/* Kibo CFO - Current App (Theme Color) */}
+                        <div className="p-4 rounded-2xl border border-primary relative overflow-hidden group transition-all duration-300 hover:bg-primary/10">
                             <div className="flex justify-between items-start mb-2">
-                                <div className="font-bold text-lg" style={{ color: '#65A1C9' }}>Mykibo CFO</div>
-                                <span className="text-[10px] font-bold px-2 py-1 rounded-full"
-                                    style={{ backgroundColor: '#65A1C9', color: '#142430' }}>
+                                <div className="font-bold text-lg text-primary">Mykibo CFO</div>
+                                <span className="text-[10px] font-bold px-2 py-1 rounded-full bg-primary text-primary-foreground">
                                     You are here
                                 </span>
                             </div>
-                            <p className="text-sm opacity-80" style={{ color: '#65A1C9' }}>Finance & Budgeting</p>
+                            <p className="text-sm opacity-80 text-primary">Finance & Budgeting</p>
+
+                            {/* Placeholder for Connect Logic if needed (since "You are here", it is always connected) */}
                         </div>
 
                         {/* Kibo Nexus - Link to External (Green) */}

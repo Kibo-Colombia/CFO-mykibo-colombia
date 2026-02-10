@@ -126,7 +126,7 @@ export default function HomePage() {
 
     if (!user || loading) {
         return (
-            <div className="min-h-screen bg-[#1B4034] flex items-center justify-center">
+            <div className="min-h-screen bg-kibo-bg flex items-center justify-center">
                 <div className="w-8 h-8 rounded-full border-2 border-white/20 border-t-white animate-spin" />
             </div>
         );

@@ -129,7 +129,7 @@ export function MascotSection({ investmentPercentage, pendingPercentage, userNam
           transition-all duration-300
           ${isAnimating ? 'opacity-0 translate-y-2' : 'opacity-100 translate-y-0'}
         `}
-                style={{ borderColor: '#65A1C9' }}
+                style={{ borderColor: 'var(--color-total)' }}
             >
 
 
@@ -164,7 +164,7 @@ export function MascotSection({ investmentPercentage, pendingPercentage, userNam
                      border-r-[12px] border-r-transparent
                      border-t-[14px]"
                     style={{
-                        borderTopColor: '#65A1C9',
+                        borderTopColor: 'var(--color-total)',
                         filter: 'drop-shadow(0 2px 2px rgba(0,0,0,0.1))'
                     }}
                 />

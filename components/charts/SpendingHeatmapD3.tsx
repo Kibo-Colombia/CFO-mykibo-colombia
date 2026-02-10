@@ -197,7 +197,7 @@ export default function SpendingHeatmapD3({ expenses, onExpand, onInfo, isExpand
   }, [expenses, isExpanded, tooMuchData]);
 
   return (
-    <div className={`${isExpanded ? 'w-full h-full flex flex-col bg-[#1B4034]' : 'liquid-card p-5'}`}>
+    <div className={`${isExpanded ? 'w-full h-full flex flex-col bg-kibo-bg' : 'liquid-card p-5'}`}>
       {!isExpanded && (
         <div className="flex justify-between items-center mb-4">
           <h2 className="text-label text-secondary-text">Spending Heatmap</h2>

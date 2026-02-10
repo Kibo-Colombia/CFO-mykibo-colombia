@@ -8,7 +8,7 @@ import MainDashboard from '@/components/MainDashboard';
 
 function DashboardLoading() {
   return (
-    <div className="min-h-screen bg-[#1B4034] flex items-center justify-center">
+    <div className="min-h-screen bg-kibo-bg flex items-center justify-center">
       <div className="loading-spinner loading-spinner--lg border-kibo-blue"></div>
     </div>
   );

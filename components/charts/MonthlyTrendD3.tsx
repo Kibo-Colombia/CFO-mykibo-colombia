@@ -217,7 +217,7 @@ export default function MonthlyTrendD3({ data, onExpand, onInfo, isExpanded = fa
   }, [data, isExpanded]);
 
   return (
-    <div className={`${isExpanded ? 'w-full h-full flex flex-col bg-[#1B4034]' : 'liquid-card p-5'}`}>
+    <div className={`${isExpanded ? 'w-full h-full flex flex-col bg-kibo-bg' : 'liquid-card p-5'}`}>
       {!isExpanded && (
         <div className="flex justify-between items-center mb-4">
           <h2 className="text-label text-secondary-text">Monthly Spending Trend</h2>
