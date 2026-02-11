@@ -83,7 +83,7 @@ export default function TourHomePage() {
         // 5. Available
         const availableBudget = Math.max(0, totalBudget - totalSpent);
 
-        // Metrics for Mascot
+        // Metrics for Pet
         const investmentPercentage = totalBudget > 0 ? (futureSpent / totalBudget) * 100 : 0;
         const pendingPercentage = totalBudget > 0 ? (availableBudget / totalBudget) * 100 : 0;
 
@@ -103,7 +103,7 @@ export default function TourHomePage() {
             metrics={metrics}
             refDate={refDate}
             loading={false}
-            mascotTypeOverride="tane"
+            petTypeOverride="tane"
         />
     );
 }

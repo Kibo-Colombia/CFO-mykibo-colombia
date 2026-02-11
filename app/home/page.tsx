@@ -7,7 +7,7 @@ import { createClient } from '@/lib/supabase/client';
 import { User } from '@supabase/supabase-js';
 import { useTour } from '@/context/TourContext';
 import { useExpenseData } from '@/hooks/use-expense-data';
-import { MascotSection } from '@/components/home/MascotSection';
+import { PetSection } from '@/components/home/PetSection';
 import BudgetRingsD3 from '@/components/charts/BudgetRingsD3';
 import { formatCurrency } from '@/lib/d3-utils';
 import { ExpenseTarget } from '@/types';
@@ -111,7 +111,7 @@ export default function HomePage() {
         // 5. Available (Total Budget - Total Spent)
         const availableBudget = Math.max(0, totalBudget - totalSpent);
 
-        // Metrics for Mascot (Investment Health)
+        // Metrics for Pet (Investment Health)
         const investmentPercentage = totalBudget > 0 ? (futureSpent / totalBudget) * 100 : 0;
         const pendingPercentage = totalBudget > 0 ? (availableBudget / totalBudget) * 100 : 0;
 

@@ -16,8 +16,9 @@ export default function ResetStoragePage() {
         localStorage.clear();
 
         // Set defaults for new user
-        localStorage.setItem('mascot_type', 'kibo');
-        localStorage.setItem('mascot_name', 'Kibo');
+        // Set defaults for new user
+        localStorage.setItem('pet_type', 'kibo');
+        localStorage.setItem('pet_name', 'Kibo');
 
         setCleared(true);
 
@@ -86,7 +87,7 @@ export default function ResetStoragePage() {
                     <div className="pt-4 border-t border-white/10">
                         <p className="text-xs text-[#A9D9C7]/60">
                             After clearing, default settings will be restored:<br />
-                            • Mascot: Kibo<br />
+                            • Pet: Kibo<br />
                             • All preferences reset
                         </p>
                     </div>

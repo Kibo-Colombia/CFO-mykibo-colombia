@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { MascotSection } from '@/components/home/MascotSection';
+import { PetSection } from '@/components/home/PetSection';
 import BudgetRingsD3 from '@/components/charts/BudgetRingsD3';
 import { formatCurrency } from '@/lib/d3-utils';
 import { ExpenseTarget } from '@/types';
@@ -14,7 +14,7 @@ export interface HomeViewProps {
     metrics: { investmentPercentage: number; pendingPercentage: number };
     refDate: Date;
     loading?: boolean;
-    mascotTypeOverride?: string;
+    petTypeOverride?: string;
 }
 
 export function HomeView({
@@ -24,7 +24,7 @@ export function HomeView({
     metrics,
     refDate,
     loading = false,
-    mascotTypeOverride,
+    petTypeOverride,
 }: HomeViewProps) {
 
     if (loading) {
@@ -100,13 +100,13 @@ export function HomeView({
                 </div>
             </div>
 
-            {/* Bottom Section: Kibo Mascot */}
+            {/* Bottom Section: Kibo Pet */}
             <div className="w-full max-w-[350px] flex flex-col items-center z-10 transition-all duration-300 pb-0">
-                <MascotSection
+                <PetSection
                     investmentPercentage={metrics.investmentPercentage}
                     pendingPercentage={metrics.pendingPercentage}
                     userName={user.name || 'Friend'} // Simplified
-                    mascotTypeOverride={mascotTypeOverride}
+                    petTypeOverride={petTypeOverride}
                 />
             </div>
         </main>

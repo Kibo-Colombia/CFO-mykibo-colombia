@@ -74,17 +74,17 @@ export default function SettingsPage() {
     // Initial values to track for unsaved changes
     const [initialDisplayName, setInitialDisplayName] = useState('');
     const [initialCurrency, setInitialCurrency] = useState('¥');
-    const [initialMascotType, setInitialMascotType] = useState('kibo');
-    const [initialMascotName, setInitialMascotName] = useState('Kibo');
+    const [initialPetType, setInitialPetType] = useState('kibo');
+    const [initialPetName, setInitialPetName] = useState('Kibo');
 
     // Form states
     // Display Name
     const [displayName, setDisplayName] = useState('');
     const [currency, setCurrency] = useState('¥');
 
-    // Mascot settings
-    const [mascotType, setMascotType] = useState('kibo');
-    const [mascotName, setMascotName] = useState('Kibo');
+    // Pet settings
+    const [petType, setPetType] = useState('kibo');
+    const [petName, setPetName] = useState('Kibo');
 
     // Advanced settings
     const [proBuilderMobile, setProBuilderMobile] = useState(false);
@@ -107,26 +107,26 @@ export default function SettingsPage() {
     useEffect(() => {
         loadProfile();
 
-        // Load mascot settings
-        const storedMascotType = localStorage.getItem('mascot_type');
-        const storedMascotName = localStorage.getItem('mascot_name');
+        // Load pet settings
+        const storedPetType = localStorage.getItem('pet_type') || localStorage.getItem('mascot_type');
+        const storedPetName = localStorage.getItem('pet_name') || localStorage.getItem('mascot_name');
 
-        if (storedMascotType) {
-            setMascotType(storedMascotType);
-            setInitialMascotType(storedMascotType);
+        if (storedPetType) {
+            setPetType(storedPetType);
+            setInitialPetType(storedPetType);
         } else {
             // New user - set defaults
-            setMascotType('kibo');
-            setInitialMascotType('kibo');
+            setPetType('kibo');
+            setInitialPetType('kibo');
         }
 
-        if (storedMascotName) {
-            setMascotName(storedMascotName);
-            setInitialMascotName(storedMascotName);
+        if (storedPetName) {
+            setPetName(storedPetName);
+            setInitialPetName(storedPetName);
         } else {
             // New user - set defaults
-            setMascotName('Kibo');
-            setInitialMascotName('Kibo');
+            setPetName('Kibo');
+            setInitialPetName('Kibo');
         }
 
         // Load pro builder mobile setting
@@ -148,14 +148,14 @@ export default function SettingsPage() {
 
         window.addEventListener('beforeunload', handleBeforeUnload);
         return () => window.removeEventListener('beforeunload', handleBeforeUnload);
-    }, [displayName, currency, mascotType, mascotName, initialDisplayName, initialCurrency, initialMascotType, initialMascotName]);
+    }, [displayName, currency, petType, petName, initialDisplayName, initialCurrency, initialPetType, initialPetName]);
 
     const hasUnsavedChanges = () => {
         return (
             displayName !== initialDisplayName ||
             currency !== initialCurrency ||
-            mascotType !== initialMascotType ||
-            mascotName !== initialMascotName ||
+            petType !== initialPetType ||
+            petName !== initialPetName ||
             proBuilderMobile !== initialProBuilderMobile
         );
     };
@@ -184,7 +184,7 @@ export default function SettingsPage() {
         // Capture phase to intercept before Next.js Link handles it
         document.addEventListener('click', handleAnchorClick, true);
         return () => document.removeEventListener('click', handleAnchorClick, true);
-    }, [displayName, currency, mascotType, mascotName, initialDisplayName, initialCurrency, initialMascotType, initialMascotName]);
+    }, [displayName, currency, petType, petName, initialDisplayName, initialCurrency, initialPetType, initialPetName]);
 
     const handleConfirmExit = () => {
         setShowExitModal(false);
@@ -240,8 +240,8 @@ export default function SettingsPage() {
         setLoading(false);
     };
 
-    // Auto-update mascot name logic
-    const handleMascotSelection = (newType: string) => {
+    // Auto-update pet name logic
+    const handlePetSelection = (newType: string) => {
         // If the user hasn't customized the name (i.e. name matches current type name), update it.
         // Or cleaner: check if the current name is just the capitalized version of the OLD type.
 
@@ -249,13 +249,13 @@ export default function SettingsPage() {
         // e.g. type='kibo', name='Kibo' -> user selects 'kai'. Since name was 'Kibo', auto-switch to 'Kai'.
         // e.g. type='kibo', name='Buddy' -> user selects 'Kai'. Name stays 'Buddy'.
 
-        const currentTypeCapitalized = mascotType.charAt(0).toUpperCase() + mascotType.slice(1);
-        if (mascotName === currentTypeCapitalized) {
+        const currentTypeCapitalized = petType.charAt(0).toUpperCase() + petType.slice(1);
+        if (petName === currentTypeCapitalized) {
             const newName = newType.charAt(0).toUpperCase() + newType.slice(1);
-            setMascotName(newName);
+            setPetName(newName);
         }
 
-        setMascotType(newType);
+        setPetType(newType);
     };
 
     const handleSaveProfile = async () => {
@@ -276,16 +276,16 @@ export default function SettingsPage() {
         if (error) {
             setMessage({ type: 'error', text: error.message });
         } else {
-            // Save mascot settings to local storage
-            localStorage.setItem('mascot_type', mascotType);
-            localStorage.setItem('mascot_name', mascotName);
+            // Save pet settings to local storage
+            localStorage.setItem('pet_type', petType);
+            localStorage.setItem('pet_name', petName);
             localStorage.setItem('pro_builder_mobile', proBuilderMobile.toString());
 
             // Reset dirty state
             setInitialDisplayName(displayName);
             setInitialCurrency(currency);
-            setInitialMascotType(mascotType);
-            setInitialMascotName(mascotName);
+            setInitialPetType(petType);
+            setInitialPetName(petName);
             setInitialProBuilderMobile(proBuilderMobile);
 
             // Dispatch valid event to notify other components if needed
@@ -480,40 +480,40 @@ export default function SettingsPage() {
 
                     </div>
 
-                    {/* Mascot Customization */}
+                    {/* Pet Customization */}
                     <div className="liquid-card-premium p-6 space-y-4 hover-lift relative z-10">
-                        <h2 className="text-xl font-semibold text-white">Mascot Customization</h2>
+                        <h2 className="text-xl font-semibold text-white">Pet Customization</h2>
 
                         <div>
                             <label className="block text-sm font-medium text-secondary-text mb-3">
                                 Choose your companion
                             </label>
                             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                                {['kibo', 'kai', 'riko', 'tane'].map((mascot) => (
+                                {['kibo', 'kai', 'riko', 'tane', 'sui'].map((pet) => (
                                     <button
-                                        key={mascot}
-                                        onClick={() => handleMascotSelection(mascot)}
+                                        key={pet}
+                                        onClick={() => handlePetSelection(pet)}
                                         className={`
                                         relative p-2 rounded-xl transition-all duration-300
                                         flex flex-col items-center gap-2 group
-                                        ${mascotType === mascot
+                                        ${petType === pet
                                                 ? 'bg-cyber-cyan/10 border-2 border-cyber-cyan shadow-[0_0_15px_rgba(6,182,212,0.2)]'
                                                 : 'bg-white/5 border border-white/10 hover:border-white/30 hover:bg-white/10'}
                                     `}
                                     >
                                         <div className="relative w-20 h-20 transition-transform duration-300 group-hover:scale-110">
                                             <Image
-                                                src={`/mascot/${mascot}/normal.png`}
-                                                alt={mascot}
+                                                src={`/pet/${pet}/normal.png`}
+                                                alt={pet}
                                                 fill
                                                 className="object-contain"
                                             />
                                         </div>
-                                        <span className={`text-sm font-medium capitalize ${mascotType === mascot ? 'text-cyber-cyan' : 'text-secondary-text'}`}>
-                                            {mascot}
+                                        <span className={`text-sm font-medium capitalize ${petType === pet ? 'text-cyber-cyan' : 'text-secondary-text'}`}>
+                                            {pet}
                                         </span>
 
-                                        {mascotType === mascot && (
+                                        {petType === pet && (
                                             <div className="absolute top-2 right-2 w-4 h-4 rounded-full bg-cyber-cyan flex items-center justify-center">
                                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" className="w-2.5 h-2.5 text-[#1B4034]">
                                                     <polyline points="20 6 9 17 4 12"></polyline>
@@ -527,13 +527,13 @@ export default function SettingsPage() {
 
                         <div>
                             <label className="block text-sm font-medium text-secondary-text mb-2">
-                                Give your mascot a name
+                                Give your pet a name
                             </label>
                             <input
                                 type="text"
-                                value={mascotName}
-                                onChange={(e) => setMascotName(e.target.value)}
-                                placeholder="Mascot Name"
+                                value={petName}
+                                onChange={(e) => setPetName(e.target.value)}
+                                placeholder="Pet Name"
                                 className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10
                          text-white placeholder:text-secondary-text/50
                          focus:border-cyber-cyan focus:outline-none transition-colors"

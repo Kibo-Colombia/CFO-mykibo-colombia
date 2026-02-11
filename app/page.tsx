@@ -70,11 +70,11 @@ export default function Home() {
           </p>
         </div>
 
-        {/* Mascot */}
+        {/* Pet */}
         <div className="relative w-64 h-64 md:w-80 md:h-80 animate-float my-4">
           <Image
-            src="/mascot/kibo/happy.png"
-            alt="Kibo Mascot"
+            src="/pet/kibo/happy.png"
+            alt="Kibo Pet"
             fill
             className="object-contain drop-shadow-2xl"
             priority
